@@ -66,12 +66,14 @@
     <div class="glass form">
       <form id="admForm" novalidate>
         <div class="field"><label for="fName"><span data-t="132">শিক্ষার্থীর পূর্ণ নাম:</span></label><input id="fName" name="name" type="text" autocomplete="name" placeholder="আপনার নাম লিখুন" data-p="150" required></div>
-        <div class="field"><label for="fPhone"><span data-t="133">মোবাইল নম্বর (WhatsApp):</span></label><input id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required><p class="fld-err" id="fPhoneErr" role="alert" hidden></p></div>
         <div class="row">
-          <div class="field"><label for="fAge"><span data-t="134">শিক্ষার্থীর বয়স:</span></label><input id="fAge" name="age" type="number" min="3" max="99" inputmode="numeric" placeholder="যেমন: ১০" data-p="151"></div>
+          <div class="field"><label for="fPhone"><span data-t="133">মোবাইল নম্বর (WhatsApp):</span></label><input id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required><p class="fld-err" id="fPhoneErr" role="alert" hidden></p></div>
           <div class="field"><label for="fCountry"><span data-lbl="country">দেশ:</span></label><select id="fCountry" name="country" autocomplete="country"><option value="">দেশ বাছুন...</option></select></div>
         </div>
-        <div class="field"><label for="fCity"><span data-lbl="city">শহর (ঐচ্ছিক):</span></label><input id="fCity" name="city" type="text" autocomplete="address-level2" placeholder="যেমন: ঢাকা" data-cityph></div>
+        <div class="row">
+          <div class="field"><label for="fAge"><span data-t="134">শিক্ষার্থীর বয়স:</span></label><input id="fAge" name="age" type="number" min="3" max="99" inputmode="numeric" placeholder="যেমন: ১০" data-p="151"></div>
+          <div class="field"><label for="fCity"><span data-lbl="city">শহর (ঐচ্ছিক):</span></label><input id="fCity" name="city" type="text" autocomplete="address-level2" placeholder="যেমন: ঢাকা" data-cityph></div>
+        </div>
         <div class="field"><label for="fLevel"><span data-t="136">বর্তমান পড়ার স্তর:</span></label>
           <select id="fLevel" name="level"><option value="" data-t="0">বাছুন...</option><option data-t="1">একদম নতুন (আরবি অক্ষর শিখব)</option><option data-t="2">আরবি পড়তে পারি, তাজবিদ জানি না</option><option data-t="3">কিছুটা তাজবিদ জানি</option><option data-t="4">হিফজ/রিভিশন করছি</option></select></div>
         <div class="field"><label for="fCourse"><span data-t="137">পছন্দের কোর্স:</span></label>
@@ -153,7 +155,7 @@ function syncSel(){
 if(window.intlTelInput){
  try{
   iti=window.intlTelInput(phone,{
-   initialCountry:'auto',geoIpLookup:geo,separateDialCode:true,nationalMode:true,
+   initialCountry:'auto',geoIpLookup:geo,separateDialCode:false,nationalMode:false,autoHideDialCode:false,formatOnDisplay:true,
    preferredCountries:['bd','sa','ae','gb','us','ca','au','my','it','eg','qa','kw','om','in','pk'],
    localizedCountries:loc,autoPlaceholder:'polite',
    utilsScript:'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/js/utils.js'
@@ -169,29 +171,37 @@ sel.addEventListener('change',function(){
 });
 
 function digits(){return(phone.value||'').replace(/\D/g,'')}
+function dialCode(){var c=iti&&iti.getSelectedCountryData();return(c&&c.dialCode)||''}
+function hasNum(){var d=digits();return iti?d.length>dialCode().length:d.length>0}
 function e164(){
- var n='';
- if(iti){try{n=iti.getNumber()}catch(e){}}
- if(n&&n.charAt(0)=='+')return n;
- var d=digits().replace(/^0+/,'');if(!d)return '';
- var c=iti&&iti.getSelectedCountryData();
- return '+'+((c&&c.dialCode)||'')+d;
+ if(!hasNum())return '';
+ var raw=(phone.value||'').trim(),all=digits(),dial=dialCode();
+ if(raw.charAt(0)=='+'){
+  if(dial&&all.indexOf(dial)==0&&dial!='39')all=dial+all.slice(dial.length).replace(/^0+/,'');
+  return '+'+all;
+ }
+ return '+'+dial+all.replace(/^0+/,'');
 }
 function valid(){
- var d=digits();if(!d)return false;
+ if(!hasNum())return false;
+ var d=digits();
  if(iti&&window.intlTelInputUtils){try{var r=iti.isValidNumber();if(r!==null&&r!==undefined)return !!r}catch(e){}}
- return d.length>=6&&d.length<=15;
+ return d.length>=8&&d.length<=15;
 }
 function check(show){
- var l=lang(),d=digits(),ok=valid();
- field.classList.toggle('is-valid',!!d&&ok);
- field.classList.toggle('is-invalid',!!d&&!ok&&show);
- err.hidden=!(show&&(!d||!ok));
- if(!err.hidden)err.textContent=d?T[l].bad:T[l].empty;
+ var l=lang(),has=hasNum(),ok=valid();
+ field.classList.toggle('is-valid',has&&ok);
+ field.classList.toggle('is-invalid',has&&!ok&&show);
+ err.hidden=!(show&&(!has||!ok));
+ if(!err.hidden)err.textContent=has?T[l].bad:T[l].empty;
  return ok;
 }
-phone.addEventListener('input',function(){check(false)});
-phone.addEventListener('blur',function(){if(digits())check(true)});
+phone.addEventListener('input',function(){
+ var dial=dialCode();
+ if(iti&&dial&&dial!='39'){var re=new RegExp('^(\\+'+dial+'[\\s\\-]*)0+');if(re.test(phone.value))phone.value=phone.value.replace(re,'$1')}
+ check(false);
+});
+phone.addEventListener('blur',function(){if(hasNum())check(true)});
 
 /* app.js-এর জমা দেওয়ার কোড এই অংশ ব্যবহার করে */
 window.NFPhone={

@@ -711,3 +711,9 @@ footer a.fc-row:hover span{color:var(--sky)}
 .field.is-invalid .iti input{border-color:#f87171;box-shadow:0 0 0 4px rgba(248,113,113,.14)}
 .field.is-valid .iti::after{content:'';position:absolute;right:14px;top:50%;width:20px;height:20px;transform:translateY(-50%);pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2334d399' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.5 12.5l4.3 4.3L18.5 7.8'/%3E%3C/svg%3E") no-repeat center/contain}
 .field.is-valid .iti input{padding-right:44px !important}
+
+/* ফোন ঘরে পতাকা-বাটন ও লেখার জায়গা */
+.iti__selected-flag{background:rgba(255,255,255,.06);border-radius:14px 0 0 14px}
+.iti__selected-flag:hover,.iti__selected-flag:focus{background:rgba(142,203,255,.14)}
+.field .iti input,.field .iti input[type=tel]{min-width:0;letter-spacing:.2px}
+@media(max-width:560px){.form .row{grid-template-columns:1fr !important;display:grid}}
