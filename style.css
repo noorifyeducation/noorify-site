@@ -689,3 +689,25 @@ footer .fc-row i{display:grid;place-items:center;flex:none;width:28px;height:28p
 footer .fc-row span{min-width:0;overflow-wrap:anywhere;unicode-bidi:plaintext}
 footer a.fc-row:hover{text-decoration:none}
 footer a.fc-row:hover span{color:var(--sky)}
+
+
+/* ===== দেশ ড্রপডাউন + আন্তর্জাতিক ফোন ইনপুট (intl-tel-input) ===== */
+.glass.form{overflow:visible}
+.iti{width:100%;display:block;direction:ltr}
+.field .iti input,.field .iti input[type=tel]{width:100%;direction:ltr;text-align:left}
+.iti--separate-dial-code .iti__selected-flag{background:rgba(255,255,255,.06);border-radius:14px 0 0 14px}
+.iti--separate-dial-code .iti__selected-flag:hover,.iti__selected-flag:focus{background:rgba(142,203,255,.14)}
+.iti__selected-dial-code{color:#fff;font:600 16px 'Inter','Hind Siliguri',sans-serif}
+.iti__arrow{border-top-color:var(--muted)}.iti__arrow--up{border-top:none;border-bottom-color:var(--muted)}
+.iti__country-list{background:#0a1a3a;color:var(--text);border:1px solid rgba(255,255,255,.14);border-radius:14px;box-shadow:var(--shadow);white-space:normal;max-width:min(340px,calc(100vw - 48px));font:15px 'Hind Siliguri','Inter',sans-serif}
+.iti__country{padding:9px 12px}
+.iti__country.iti__highlight{background:rgba(142,203,255,.16)}
+.iti__dial-code{color:var(--muted)}
+.iti__divider{border-bottom-color:rgba(255,255,255,.12)}
+.iti--container .iti__country-list{z-index:99999}
+.fld-err{color:#fca5a5;font-size:14px;line-height:1.5;margin:7px 2px 0}
+.fld-err[hidden]{display:none}
+.field.is-valid .iti input{border-color:#34d399}
+.field.is-invalid .iti input{border-color:#f87171;box-shadow:0 0 0 4px rgba(248,113,113,.14)}
+.field.is-valid .iti::after{content:'';position:absolute;right:14px;top:50%;width:20px;height:20px;transform:translateY(-50%);pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2334d399' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.5 12.5l4.3 4.3L18.5 7.8'/%3E%3C/svg%3E") no-repeat center/contain}
+.field.is-valid .iti input{padding-right:44px !important}
