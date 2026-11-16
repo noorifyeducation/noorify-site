@@ -148,10 +148,6 @@ function geo(cb){
   fetch('https://ipwho.is/').then(function(r){return r.json()}).then(function(j){fin(j&&j.country_code)}).catch(function(){fin('bd')})
  });
 }
-function syncSel(){
- if(!iti)return;var c=iti.getSelectedCountryData();
- if(c&&c.iso2)sel.value=c.iso2.toUpperCase();
-}
 if(window.intlTelInput){
  try{
   iti=window.intlTelInput(phone,{
@@ -160,15 +156,9 @@ if(window.intlTelInput){
    localizedCountries:loc,autoPlaceholder:'polite',
    utilsScript:'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/js/utils.js'
   });
-  phone.addEventListener('countrychange',function(){syncSel();check(false)});
-  if(iti.promise&&iti.promise.then)iti.promise.then(syncSel,syncSel);
-  setTimeout(syncSel,4500);
+  phone.addEventListener('countrychange',function(){check(false)});
  }catch(e){iti=null;console.error('intl-tel-input',e)}
 }
-sel.addEventListener('change',function(){
- if(iti&&sel.value){try{iti.setCountry(sel.value.toLowerCase())}catch(e){}}
- check(false);
-});
 
 function digits(){return(phone.value||'').replace(/\D/g,'')}
 function dialCode(){var c=iti&&iti.getSelectedCountryData();return(c&&c.dialCode)||''}
