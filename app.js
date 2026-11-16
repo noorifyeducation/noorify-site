@@ -41,3 +41,5 @@ try{(function(){var f=document.getElementById('admForm');if(!f||!f.course)return
   window.addEventListener('pageshow',function(ev){root.classList.remove('nf-leaving')});
  }catch(err){console.error('nf-transition',err)}
 })();
+
+try{(0,eval)("(function(){var T={bn:'কায়রো, মিশর',en:'Cairo, Egypt',ar:'القاهرة، مصر'};function lab(){var t=T[document.documentElement.lang]||T.bn;Array.prototype.forEach.call(document.querySelectorAll('[data-addr]'),function(e){e.textContent=t})}lab();document.addEventListener('nf-lang',lab)})();")}catch(e){console.error('nf-script contact',e)}
