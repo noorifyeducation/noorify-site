@@ -38,7 +38,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=Amiri:wght@400;700&family=Manrope:wght@600;700;800&family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/css/intlTelInput.min.css">
 <link rel="stylesheet" href="style.css">
 
 <link rel="manifest" href="manifest.webmanifest">
@@ -66,13 +65,10 @@
     <div class="glass form">
       <form id="admForm" novalidate>
         <div class="field"><label for="fName"><span data-t="132">শিক্ষার্থীর পূর্ণ নাম:</span></label><input id="fName" name="name" type="text" autocomplete="name" placeholder="আপনার নাম লিখুন" data-p="150" required></div>
-        <div class="row">
-          <div class="field"><label for="fPhone"><span data-t="133">মোবাইল নম্বর (WhatsApp):</span></label><input id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required><p class="fld-err" id="fPhoneErr" role="alert" hidden></p></div>
-          <div class="field"><label for="fCountry"><span data-lbl="country">দেশ:</span></label><select id="fCountry" name="country" autocomplete="country"><option value="">দেশ বাছুন...</option></select></div>
-        </div>
+        <div class="field"><label for="fPhone"><span data-t="133">মোবাইল নম্বর (WhatsApp):</span></label><input id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="017XXXXXXXX" required></div>
         <div class="row">
           <div class="field"><label for="fAge"><span data-t="134">শিক্ষার্থীর বয়স:</span></label><input id="fAge" name="age" type="number" min="3" max="99" inputmode="numeric" placeholder="যেমন: ১০" data-p="151"></div>
-          <div class="field"><label for="fCity"><span data-lbl="city">শহর (ঐচ্ছিক):</span></label><input id="fCity" name="city" type="text" autocomplete="address-level2" placeholder="যেমন: ঢাকা" data-cityph></div>
+          <div class="field"><label for="fCountry"><span data-t="135">দেশ/শহর:</span></label><input id="fCountry" name="country" type="text" placeholder="যেমন: ঢাকা, বাংলাদেশ" data-p="152"></div>
         </div>
         <div class="field"><label for="fLevel"><span data-t="136">বর্তমান পড়ার স্তর:</span></label>
           <select id="fLevel" name="level"><option value="" data-t="0">বাছুন...</option><option data-t="1">একদম নতুন (আরবি অক্ষর শিখব)</option><option data-t="2">আরবি পড়তে পারি, তাজবিদ জানি না</option><option data-t="3">কিছুটা তাজবিদ জানি</option><option data-t="4">হিফজ/রিভিশন করছি</option></select></div>
@@ -101,113 +97,5 @@
 <div class="pm" id="pm" hidden><div class="pm-box" role="dialog" aria-modal="true" aria-labelledby="pmT"><button type="button" class="pm-x" id="pmX" aria-label="Close">✕</button><div class="pm-head"><div class="pm-ico" id="pmI"></div><h3 id="pmT"></h3></div><p class="pm-intro" id="pmD"></p><div class="pm-sec"><h4 id="pmH1"></h4><ul class="pm-list" id="pmL"></ul></div><div class="pm-sec"><h4 id="pmH2"></h4><p id="pmW"></p></div><div class="pm-sec"><h4 id="pmH3"></h4><div class="pm-how" id="pmHow"></div></div><div class="pm-foot"><a href="admission.html" class="btn" id="pmC"></a><button type="button" class="btn btn-ghost" id="pmB"></button></div></div></div>
 <script>window.NF_PAGE='admission'</script>
 <script src="app.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/js/intlTelInput.min.js"></script>
-<script>
-/* ===== Noorify: দেশ ড্রপডাউন + আন্তর্জাতিক ফোন ইনপুট (দুটো পরস্পর সংযুক্ত) ===== */
-(function(){
-var ISO='AD AE AF AG AI AL AM AO AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GT GU GW GY HK HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG US UY UZ VA VC VE VG VI VN VU WF WS XK YE YT ZA ZM ZW'.split(' ');
-var T={
- bn:{country:'দেশ:',city:'শহর (ঐচ্ছিক):',cityPh:'যেমন: ঢাকা',pick:'দেশ বাছুন...',bad:'সঠিক মোবাইল নম্বর দিন (দেশের কোডসহ নম্বর মিলছে না)।',empty:'অনুগ্রহ করে মোবাইল নম্বর দিন।'},
- en:{country:'Country:',city:'City (optional):',cityPh:'e.g. Dhaka',pick:'Select country...',bad:'Please enter a valid phone number for the selected country.',empty:'Please enter your mobile number.'},
- ar:{country:'الدولة:',city:'المدينة (اختياري):',cityPh:'مثال: دكا',pick:'اختر الدولة...',bad:'يرجى إدخال رقم هاتف صحيح للدولة المختارة.',empty:'يرجى إدخال رقم الجوال.'}
-};
-var q=function(s){return document.querySelector(s)};
-var phone=q('#fPhone'),sel=q('#fCountry'),city=q('#fCity'),err=q('#fPhoneErr');
-if(!phone||!sel)return;
-var field=phone.closest('.field');
-var isWin=/Windows/i.test(navigator.userAgent);
-function lang(){var l=document.documentElement.lang;return T[l]?l:'bn'}
-function dn(l){try{return new Intl.DisplayNames([l],{type:'region'})}catch(e){return null}}
-function nameOf(d,c){try{var n=d&&d.of(c);return(n&&n!==c)?n:''}catch(e){return ''}}
-function flag(c){return String.fromCodePoint(127397+c.charCodeAt(0),127397+c.charCodeAt(1))}
-
-/* ---- দেশ ড্রপডাউন ---- */
-function build(){
- var l=lang(),d=dn(l),keep=sel.value,list=ISO.map(function(c){return{v:c,n:nameOf(d,c)||c}});
- list.sort(function(a,b){return a.n.localeCompare(b.n,l)});
- sel.innerHTML='';
- var o=document.createElement('option');o.value='';o.textContent=T[l].pick;sel.appendChild(o);
- list.forEach(function(x){var op=document.createElement('option');op.value=x.v;op.textContent=(isWin?'':flag(x.v)+' ')+x.n;sel.appendChild(op)});
- sel.value=keep;
-}
-function labels(){
- var l=lang();
- [].forEach.call(document.querySelectorAll('[data-lbl]'),function(e){e.textContent=T[l][e.getAttribute('data-lbl')]});
- if(city)city.placeholder=T[l].cityPh;
-}
-
-/* ---- ফোন ইনপুট ---- */
-var iti=null,loc={};
-(function(){var l=lang(),d=dn(l);ISO.forEach(function(c){var n=nameOf(d,c);if(n)loc[c.toLowerCase()]=n})})();
-function geo(cb){
- var done=false;function fin(c){if(!done){done=true;cb((c||'bd').toLowerCase())}}
- setTimeout(function(){fin('bd')},4000);
- fetch('https://ipapi.co/json/').then(function(r){return r.json()}).then(function(j){
-  if(j&&j.country_code)fin(j.country_code);else throw 0
- }).catch(function(){
-  fetch('https://ipwho.is/').then(function(r){return r.json()}).then(function(j){fin(j&&j.country_code)}).catch(function(){fin('bd')})
- });
-}
-if(window.intlTelInput){
- try{
-  iti=window.intlTelInput(phone,{
-   initialCountry:'auto',geoIpLookup:geo,separateDialCode:false,nationalMode:false,autoHideDialCode:false,formatOnDisplay:true,
-   preferredCountries:['bd','sa','ae','gb','us','ca','au','my','it','eg','qa','kw','om','in','pk'],
-   localizedCountries:loc,autoPlaceholder:'polite',
-   utilsScript:'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/js/utils.js'
-  });
-  phone.addEventListener('countrychange',function(){check(false)});
- }catch(e){iti=null;console.error('intl-tel-input',e)}
-}
-
-function digits(){return(phone.value||'').replace(/\D/g,'')}
-function dialCode(){var c=iti&&iti.getSelectedCountryData();return(c&&c.dialCode)||''}
-function hasNum(){var d=digits();return iti?d.length>dialCode().length:d.length>0}
-function e164(){
- if(!hasNum())return '';
- var raw=(phone.value||'').trim(),all=digits(),dial=dialCode();
- if(raw.charAt(0)=='+'){
-  if(dial&&all.indexOf(dial)==0&&dial!='39')all=dial+all.slice(dial.length).replace(/^0+/,'');
-  return '+'+all;
- }
- return '+'+dial+all.replace(/^0+/,'');
-}
-function valid(){
- if(!hasNum())return false;
- var d=digits();
- if(iti&&window.intlTelInputUtils){try{var r=iti.isValidNumber();if(r!==null&&r!==undefined)return !!r}catch(e){}}
- return d.length>=8&&d.length<=15;
-}
-function check(show){
- var l=lang(),has=hasNum(),ok=valid();
- field.classList.toggle('is-valid',has&&ok);
- field.classList.toggle('is-invalid',has&&!ok&&show);
- err.hidden=!(show&&(!has||!ok));
- if(!err.hidden)err.textContent=has?T[l].bad:T[l].empty;
- return ok;
-}
-phone.addEventListener('input',function(){
- var dial=dialCode();
- if(iti&&dial&&dial!='39'){var re=new RegExp('^(\\+'+dial+'[\\s\\-]*)0+');if(re.test(phone.value))phone.value=phone.value.replace(re,'$1')}
- check(false);
-});
-phone.addEventListener('blur',function(){if(hasNum())check(true)});
-
-/* app.js-এর জমা দেওয়ার কোড এই অংশ ব্যবহার করে */
-window.NFPhone={
- value:e164,
- ok:function(){return check(true)},
- err:function(){return err.textContent||T[lang()].bad},
- country:function(){
-  var v=sel.value;if(!v)return '';
-  var b=nameOf(dn('bn'),v),e=nameOf(dn('en'),v);
-  return(b&&e&&b!==e)?b+' ('+e+')':(b||e||v);
- }
-};
-
-build();labels();
-document.addEventListener('nf-lang',function(){build();labels()});
-})();
-</script>
 </body>
 </html>
