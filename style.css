@@ -792,3 +792,7 @@ html[lang="en"] .nfp-title{font-family:'Manrope','Inter',sans-serif;font-weight:
   #p-home .hero-copy>p{max-width:560px}
   #p-home .hero-copy>.actions{justify-content:flex-start}
 }
+
+/* double gold frame on hero image */
+#p-home .cover.pic{padding:7px;border:1.5px solid #e8cd8a;border-radius:28px}
+#p-home .cover.pic .cimg{border-radius:20px;border:1px solid rgba(232,205,138,.7)}
