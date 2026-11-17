@@ -65,7 +65,7 @@
     <div class="glass form">
       <form id="admForm" novalidate>
         <div class="field"><label for="fName"><span data-t="132">শিক্ষার্থীর পূর্ণ নাম:</span></label><input id="fName" name="name" type="text" autocomplete="name" placeholder="আপনার নাম লিখুন" data-p="150" required></div>
-        <div class="field"><label for="fPhone"><span data-t="133">মোবাইল নম্বর (WhatsApp):</span></label><div class="phone-box"><div class="code-pick"><span class="code-view" id="fCodeView" aria-hidden="true">+880</span><select id="fCode" name="phone_code" aria-label="কান্ট্রি কোড নির্বাচন করুন"></select></div><input id="fPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="20" placeholder="নম্বর লিখুন" required></div><p class="fld-err" id="fPhoneErr" role="alert" hidden></p></div>
+        <div class="field"><label for="fPhone"><span data-t="133">মোবাইল নম্বর (WhatsApp):</span></label><div class="phone-box"><div class="code-pick"><span class="code-view ph" id="fCodeView" aria-hidden="true">কোড নির্বাচন</span><select id="fCode" name="phone_code" aria-label="কান্ট্রি কোড নির্বাচন করুন"></select></div><input id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="off" maxlength="20" placeholder="নম্বর লিখুন" required></div><p class="fld-info" id="fPhoneInfo" hidden></p><p class="fld-err" id="fPhoneErr" role="alert" hidden></p></div>
         <div class="row">
           <div class="field"><label for="fAge"><span data-t="134">শিক্ষার্থীর বয়স:</span></label><input id="fAge" name="age" type="number" min="3" max="99" inputmode="numeric" placeholder="যেমন: ১০" data-p="151"></div>
           <div class="field"><label for="fCountry"><span data-lbl="country">দেশ:</span></label><select id="fCountry" name="country" autocomplete="country"><option value="">দেশ নির্বাচন করুন...</option></select></div>
@@ -105,17 +105,19 @@ var D={AD:'376',AE:'971',AF:'93',AG:'1268',AI:'1264',AL:'355',AM:'374',AO:'244',
 var DEF={'1':'US','7':'RU','39':'IT','44':'GB','47':'NO','61':'AU','212':'MA','262':'RE','358':'FI','590':'GP','599':'CW'};
 /* নম্বরের দৈর্ঘ্য ও প্রথম অঙ্ক (শুরুর 0 বাদ দিয়ে): [সর্বনিম্ন, সর্বোচ্চ, প্রথম অঙ্ক] */
 var RULE={BD:[10,10,'1'],IN:[10,10,'6789'],SA:[9,9,'5'],AE:[9,9,'5'],PK:[10,10,'3'],US:[10,10],CA:[10,10],GB:[10,10,'7'],EG:[10,10,'1']};
+var GUESS=['BD','IN','SA','AE','PK','GB','EG'];
 var T={
- bn:{country:'দেশ:',city:'শহর (ঐচ্ছিক):',cityPh:'যেমন: ঢাকা',pick:'দেশ নির্বাচন করুন...',codeLbl:'কান্ট্রি কোড নির্বাচন করুন',phPh:'নম্বর লিখুন',bad:'নম্বরটি সঠিক নয়। নির্বাচিত কোডের সাথে মিলিয়ে নম্বর দিন।',empty:'অনুগ্রহ করে মোবাইল নম্বর দিন।'},
- en:{country:'Country:',city:'City (optional):',cityPh:'e.g. Dhaka',pick:'Select country...',codeLbl:'Select country code',phPh:'Phone number',bad:'This number looks incorrect for the selected country code.',empty:'Please enter your mobile number.'},
- ar:{country:'الدولة:',city:'المدينة (اختياري):',cityPh:'مثال: دكا',pick:'اختر الدولة...',codeLbl:'اختر رمز الدولة',phPh:'رقم الهاتف',bad:'الرقم غير صحيح لرمز الدولة المختار.',empty:'يرجى إدخال رقم الجوال.'}
+ bn:{country:'দেশ:',city:'শহর (ঐচ্ছিক):',cityPh:'যেমন: ঢাকা',pick:'দেশ নির্বাচন করুন...',codeOpt:'কোড নির্বাচন করুন...',codePh:'কোড নির্বাচন',codeLbl:'কান্ট্রি কোড নির্বাচন করুন',phPh:'নম্বর লিখুন',yourNum:'আপনার নম্বর:',
+  needCode:'অনুগ্রহ করে কান্ট্রি কোড নির্বাচন করুন।',empty:'অনুগ্রহ করে মোবাইল নম্বর দিন।',bad:'নম্বরটি নির্বাচিত কোডের সাথে মেলে না। কোড বা নম্বর ঠিক করুন।',hint:'এটা {X}-এর নম্বরের মতো দেখাচ্ছে।',pending:'কান্ট্রি কোড সম্পূর্ণ করুন, অথবা তালিকা থেকে নির্বাচন করুন।',unknown:'এই কান্ট্রি কোডটি চেনা যায়নি। তালিকা থেকে নির্বাচন করুন।'},
+ en:{country:'Country:',city:'City (optional):',cityPh:'e.g. Dhaka',pick:'Select country...',codeOpt:'Select code...',codePh:'Select code',codeLbl:'Select country code',phPh:'Phone number',yourNum:'Your number:',
+  needCode:'Please select a country code.',empty:'Please enter your mobile number.',bad:'This number does not match the selected code. Check the code or the number.',hint:'It looks like a {X} number.',pending:'Finish the country code or select it from the list.',unknown:'Unknown country code. Select it from the list.'},
+ ar:{country:'الدولة:',city:'المدينة (اختياري):',cityPh:'مثال: دكا',pick:'اختر الدولة...',codeOpt:'اختر رمز الدولة...',codePh:'اختر الرمز',codeLbl:'اختر رمز الدولة',phPh:'رقم الهاتف',yourNum:'رقمك:',
+  needCode:'يرجى اختيار رمز الدولة.',empty:'يرجى إدخال رقم الجوال.',bad:'الرقم لا يطابق الرمز المختار. تحقق من الرمز أو الرقم.',hint:'يبدو كرقم {X}.',pending:'أكمل رمز الدولة أو اخترها من القائمة.',unknown:'رمز الدولة غير معروف. اختره من القائمة.'}
 };
 var q=function(s){return document.querySelector(s)};
-var code=q('#fCode'),view=q('#fCodeView'),phone=q('#fPhone'),sel=q('#fCountry'),city=q('#fCity'),err=q('#fPhoneErr');
-if(!code||!view||!phone||!sel||!err)return;
-var field=phone.closest('.field');
-var isWin=/Windows/i.test(navigator.userAgent);
-var ISO=Object.keys(D);
+var code=q('#fCode'),view=q('#fCodeView'),phone=q('#fPhone'),sel=q('#fCountry'),city=q('#fCity'),err=q('#fPhoneErr'),info=q('#fPhoneInfo');
+if(!code||!view||!phone||!sel||!err||!info)return;
+var field=phone.closest('.field'),isWin=/Windows/i.test(navigator.userAgent),ISO=Object.keys(D),lastIntl='';
 function lang(){var l=document.documentElement.lang;return T[l]?l:'bn'}
 function dn(l){try{return new Intl.DisplayNames([l],{type:'region'})}catch(e){return null}}
 function nameOf(d,c){try{var n=d&&d.of(c);return(n&&n!==c)?n:''}catch(e){return ''}}
@@ -126,10 +128,14 @@ function sorted(){
 }
 function opt(v,t){var o=document.createElement('option');o.value=v;o.textContent=t;return o}
 
-/* কোডের তালিকা (শুধু নির্বাচন) */
-function updateView(){var c=code.value||'BD';view.textContent=(isWin?'':flag(c)+' ')+'+'+D[c]}
+/* কোডের তালিকা (শুরুতে ফাঁকা, শুধু নির্বাচন) */
+function updateView(){
+ var c=code.value;
+ if(!c){view.textContent=T[lang()].codePh;view.classList.add('ph')}
+ else{view.classList.remove('ph');view.textContent=(isWin?'':flag(c)+' ')+'+'+D[c]}
+}
 function buildCode(){
- var keep=code.value||'BD';code.innerHTML='';
+ var keep=code.value;code.innerHTML='';code.appendChild(opt('',T[lang()].codeOpt));
  sorted().forEach(function(x){code.appendChild(opt(x.v,(isWin?'':flag(x.v)+' ')+x.n+' (+'+D[x.v]+')'))});
  code.value=keep;updateView();
 }
@@ -147,45 +153,97 @@ function labels(){
 }
 
 /* নম্বর */
-function nat(){var d=(phone.value||'').replace(/\D/g,'');if(D[code.value]!=='39')d=d.replace(/^0+/,'');return d}
-function e164(){var n=nat();return n?'+'+D[code.value]+n:''}
-function valid(){
- var n=nat();if(!n)return false;var r=RULE[code.value];
+function digits(){return(phone.value||'').replace(/\D/g,'')}
+function pending(){return /^\s*(\+|00)/.test(phone.value||'')}
+function nat(){
+ if(pending())return '';
+ var c=code.value,dial=c?D[c]:'',d=digits();
+ if(dial!=='39')d=d.replace(/^0+/,'');
+ var r=RULE[c];
+ if(r&&d.length===dial.length+r[1]&&d.indexOf(dial)===0)d=d.slice(dial.length);
+ return d;
+}
+function fits(c,n){
+ var r=RULE[c];
  if(r)return n.length>=r[0]&&n.length<=r[1]&&(!r[2]||r[2].indexOf(n.charAt(0))>-1);
- return n.length>=5&&n.length<=12&&D[code.value].length+n.length<=15;
+ return n.length>=5&&n.length<=12&&D[c].length+n.length<=15;
+}
+function guess(n){
+ var d=dn(lang()),out=[];
+ GUESS.forEach(function(c){if(c!==code.value&&fits(c,n)){var nm=nameOf(d,c);if(nm)out.push(nm)}});
+ return out.join(' / ');
 }
 function isoFor(p){
  if(DEF[p])return DEF[p];
  for(var i=0;i<ISO.length;i++)if(D[ISO[i]]===p)return ISO[i];
  return '';
 }
-/* কেউ +880… বা 00880… পেস্ট করলে কোড আলাদা করে বসিয়ে দেয় */
-function fromIntl(raw){
+/* + বা 00 দিয়ে শুরু হলে কোড চিনে নিজে বসিয়ে দেয়: 'done' | 'pending' | 'unknown' | null (সাধারণ নম্বর) */
+function parseIntl(raw){
  var t=raw.trim(),d=t.replace(/\D/g,'');
- if(t.charAt(0)==='+'){}else if(t.replace(/\s/g,'').indexOf('00')===0){d=d.slice(2)}else return false;
- for(var L=4;L>=1;L--){var iso=isoFor(d.slice(0,L));if(iso){code.value=iso;updateView();phone.value=d.slice(L);return true}}
- return false;
+ if(t.charAt(0)==='+'){}else if(t.replace(/\s/g,'').indexOf('00')===0){d=d.slice(2)}else return null;
+ if(!d)return 'pending';
+ var iso='',L=0;
+ if(d.charAt(0)==='1'){
+  if(d.length<4)return 'pending';
+  var i4=isoFor(d.slice(0,4));
+  if(i4){iso=i4;L=4}else{iso='US';L=1}
+ }else{
+  for(L=1;L<=4;L++){iso=isoFor(d.slice(0,L));if(iso)break}
+  if(!iso)return d.length>=4?'unknown':'pending';
+ }
+ if(iso==='RU'&&/^[67]/.test(d.slice(L)))iso='KZ';
+ code.value=iso;updateView();phone.value=d.slice(L);return 'done';
+}
+function status(){
+ var c=code.value,n=nat();
+ if(pending())return{ok:false,key:lastIntl==='unknown'?'unknown':'pending'};
+ if(!c)return{ok:false,key:'needCode'};
+ if(!n)return{ok:false,key:'empty'};
+ if(!fits(c,n))return{ok:false,key:'bad'};
+ return{ok:true,key:''};
+}
+function liveBad(){
+ var c=code.value,n=nat(),r=RULE[c];
+ return !!(c&&n&&r&&((r[2]&&r[2].indexOf(n.charAt(0))<0)||n.length>r[1]));
 }
 function check(show){
- var l=lang(),has=nat().length>0,ok=valid();
- field.classList.toggle('is-valid',has&&ok);
- field.classList.toggle('is-invalid',has&&!ok&&show);
- err.hidden=!(show&&(!has||!ok));
- if(!err.hidden)err.textContent=has?T[l].bad:T[l].empty;
- return ok;
+ var l=lang(),s=status(),c=code.value,n=nat(),bad=false;
+ if(!s.ok){bad=(s.key==='unknown')?true:(s.key==='bad'?(show||liveBad()):show)}
+ field.classList.toggle('is-valid',s.ok);
+ field.classList.toggle('is-invalid',bad);
+ field.classList.toggle('code-bad',bad&&s.key==='needCode');
+ err.hidden=!bad;
+ if(bad){
+  var m=T[l][s.key];
+  if(s.key==='bad'){var g=guess(n);if(g)m+=' '+T[l].hint.replace('{X}',g)}
+  err.textContent=m;
+ }
+ if(c&&n&&!pending()){
+  var nm=nameOf(dn(l),c);
+  info.textContent=T[l].yourNum+' +'+D[c]+' '+n+(nm?' ('+nm+')':'');info.hidden=false;
+ }else info.hidden=true;
+ return s.ok;
 }
 code.addEventListener('change',function(){updateView();check(false)});
 phone.addEventListener('input',function(){
- if(!fromIntl(phone.value)){var c=phone.value.replace(/\D/g,'');if(c!==phone.value)phone.value=c}
+ var r=parseIntl(phone.value);lastIntl=r||'';
+ if(r===null){var c=digits();if(c!==phone.value)phone.value=c}
+ else if(r!=='done'){var t=phone.value.trim(),v=(t.charAt(0)==='+'?'+':'')+digits();if(v!==phone.value)phone.value=v}
  check(false);
 });
-phone.addEventListener('blur',function(){if(nat().length)check(true)});
+phone.addEventListener('blur',function(){if(digits().length)check(true)});
 
 /* app.js-এর জমা দেওয়ার কোড এই অংশ ব্যবহার করে */
 window.NFPhone={
- value:e164,
- ok:function(){return check(true)},
- err:function(){return err.textContent||T[lang()].bad},
+ raw:function(){return digits()},
+ value:function(){var c=code.value,n=nat();return(c&&n&&!pending())?'+'+D[c]+n:''},
+ ok:function(){
+  var r=check(true);
+  if(!r&&status().key==='needCode'){try{code.focus()}catch(e){}}
+  return r;
+ },
+ err:function(){return err.hidden?T[lang()].bad:err.textContent},
  country:function(){
   var v=sel.value;if(!v)return '';
   var b=nameOf(dn('bn'),v),e=nameOf(dn('en'),v);
@@ -194,7 +252,7 @@ window.NFPhone={
 };
 
 buildCode();buildCountry();labels();
-document.addEventListener('nf-lang',function(){buildCode();buildCountry();labels()});
+document.addEventListener('nf-lang',function(){buildCode();buildCountry();labels();check(false)});
 })();
 </script>
 </body>
