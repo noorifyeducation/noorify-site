@@ -65,20 +65,21 @@
     <div class="glass form">
       <form id="admForm" novalidate>
         <div class="field"><label for="fName"><span data-t="132">শিক্ষার্থীর পূর্ণ নাম:</span></label><input id="fName" name="name" type="text" autocomplete="name" placeholder="আপনার নাম লিখুন" data-p="150" required></div>
-        <div class="field"><label for="fPhone"><span data-t="133">মোবাইল নম্বর (WhatsApp):</span></label><input id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="017XXXXXXXX" required></div>
+        <div class="field"><label for="fPhone"><span data-t="133">মোবাইল নম্বর (WhatsApp):</span></label><div class="phone-box"><div class="code-pick"><span class="code-view" id="fCodeView" aria-hidden="true">+880</span><select id="fCode" name="phone_code" aria-label="কান্ট্রি কোড নির্বাচন করুন"></select></div><input id="fPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="20" placeholder="নম্বর লিখুন" required></div><p class="fld-err" id="fPhoneErr" role="alert" hidden></p></div>
         <div class="row">
           <div class="field"><label for="fAge"><span data-t="134">শিক্ষার্থীর বয়স:</span></label><input id="fAge" name="age" type="number" min="3" max="99" inputmode="numeric" placeholder="যেমন: ১০" data-p="151"></div>
-          <div class="field"><label for="fCountry"><span data-t="135">দেশ/শহর:</span></label><input id="fCountry" name="country" type="text" placeholder="যেমন: ঢাকা, বাংলাদেশ" data-p="152"></div>
+          <div class="field"><label for="fCountry"><span data-lbl="country">দেশ:</span></label><select id="fCountry" name="country" autocomplete="country"><option value="">দেশ নির্বাচন করুন...</option></select></div>
         </div>
+        <div class="field"><label for="fCity"><span data-lbl="city">শহর (ঐচ্ছিক):</span></label><input id="fCity" name="city" type="text" autocomplete="address-level2" placeholder="যেমন: ঢাকা"></div>
         <div class="field"><label for="fLevel"><span data-t="136">বর্তমান পড়ার স্তর:</span></label>
-          <select id="fLevel" name="level"><option value="" data-t="0">বাছুন...</option><option data-t="1">একদম নতুন (আরবি অক্ষর শিখব)</option><option data-t="2">আরবি পড়তে পারি, তাজবিদ জানি না</option><option data-t="3">কিছুটা তাজবিদ জানি</option><option data-t="4">হিফজ/রিভিশন করছি</option></select></div>
+          <select id="fLevel" name="level"><option value="" data-t="0">নির্বাচন করুন...</option><option data-t="1">একদম নতুন (আরবি অক্ষর শিখব)</option><option data-t="2">আরবি পড়তে পারি, তাজবিদ জানি না</option><option data-t="3">কিছুটা তাজবিদ জানি</option><option data-t="4">হিফজ/রিভিশন করছি</option></select></div>
         <div class="field"><label for="fCourse"><span data-t="137">পছন্দের কোর্স:</span></label>
-          <select id="fCourse" name="course"><option value="" data-t="5">বাছুন...</option><option value="সহজ কুরআন ও তাজবিদ" data-t="6">সহজ কুরআন ও তাজবিদ</option><option value="কুরআন হিফজ ও রিভিশন" data-t="7">কুরআন হিফজ ও রিভিশন</option><option value="আরবি ভাষা শিক্ষা" data-t="8">আরবি ভাষা শিক্ষা কোর্স</option></select></div>
+          <select id="fCourse" name="course"><option value="" data-t="5">নির্বাচন করুন...</option><option value="সহজ কুরআন ও তাজবিদ" data-t="6">সহজ কুরআন ও তাজবিদ</option><option value="কুরআন হিফজ ও রিভিশন" data-t="7">কুরআন হিফজ ও রিভিশন</option><option value="আরবি ভাষা শিক্ষা" data-t="8">আরবি ভাষা শিক্ষা কোর্স</option></select></div>
         <div class="row">
           <div class="field"><label for="fPlan"><span data-t="138">পছন্দের শিডিউল:</span></label>
-            <select id="fPlan" name="plan"><option value="" data-t="9">বাছুন...</option><option value="বেসিক শিডিউল" data-t="10">বেসিক - সপ্তাহে ৩ দিন</option><option value="স্ট্যান্ডার্ড শিডিউল" data-t="11">স্ট্যান্ডার্ড - সপ্তাহে ৪ দিন</option><option value="ইনটেনসিভ শিডিউল" data-t="12">ইনটেনসিভ - সপ্তাহে ৫ দিন</option></select></div>
+            <select id="fPlan" name="plan"><option value="" data-t="9">নির্বাচন করুন...</option><option value="বেসিক শিডিউল" data-t="10">বেসিক - সপ্তাহে ৩ দিন</option><option value="স্ট্যান্ডার্ড শিডিউল" data-t="11">স্ট্যান্ডার্ড - সপ্তাহে ৪ দিন</option><option value="ইনটেনসিভ শিডিউল" data-t="12">ইনটেনসিভ - সপ্তাহে ৫ দিন</option></select></div>
           <div class="field"><label for="fTime"><span data-t="139">পছন্দের সময়:</span></label>
-            <select id="fTime" name="time"><option value="" data-t="13">বাছুন...</option><option data-t="14">সকাল</option><option data-t="15">দুপুর</option><option data-t="16">বিকাল</option><option data-t="17">সন্ধ্যা</option><option data-t="18">রাত</option></select></div>
+            <select id="fTime" name="time"><option value="" data-t="13">নির্বাচন করুন...</option><option data-t="14">সকাল</option><option data-t="15">দুপুর</option><option data-t="16">বিকাল</option><option data-t="17">সন্ধ্যা</option><option data-t="18">রাত</option></select></div>
         </div>
         <button type="submit" class="btn btn-block"><span data-t="140">আবেদন নিশ্চিত করুন</span></button>
         <p class="status" id="formStatus" role="status" aria-live="polite"></p>
@@ -97,5 +98,104 @@
 <div class="pm" id="pm" hidden><div class="pm-box" role="dialog" aria-modal="true" aria-labelledby="pmT"><button type="button" class="pm-x" id="pmX" aria-label="Close">✕</button><div class="pm-head"><div class="pm-ico" id="pmI"></div><h3 id="pmT"></h3></div><p class="pm-intro" id="pmD"></p><div class="pm-sec"><h4 id="pmH1"></h4><ul class="pm-list" id="pmL"></ul></div><div class="pm-sec"><h4 id="pmH2"></h4><p id="pmW"></p></div><div class="pm-sec"><h4 id="pmH3"></h4><div class="pm-how" id="pmHow"></div></div><div class="pm-foot"><a href="admission.html" class="btn" id="pmC"></a><button type="button" class="btn btn-ghost" id="pmB"></button></div></div></div>
 <script>window.NF_PAGE='admission'</script>
 <script src="app.js"></script>
+<script>
+/* ===== Noorify: ফোন (কোড-তালিকা + নম্বর) ও দেশ (পরিচয়) — দুটো সম্পূর্ণ আলাদা ===== */
+(function(){
+var D={AD:'376',AE:'971',AF:'93',AG:'1268',AI:'1264',AL:'355',AM:'374',AO:'244',AR:'54',AS:'1684',AT:'43',AU:'61',AW:'297',AX:'358',AZ:'994',BA:'387',BB:'1246',BD:'880',BE:'32',BF:'226',BG:'359',BH:'973',BI:'257',BJ:'229',BL:'590',BM:'1441',BN:'673',BO:'591',BQ:'599',BR:'55',BS:'1242',BT:'975',BW:'267',BY:'375',BZ:'501',CA:'1',CC:'61',CD:'243',CF:'236',CG:'242',CH:'41',CI:'225',CK:'682',CL:'56',CM:'237',CN:'86',CO:'57',CR:'506',CU:'53',CV:'238',CW:'599',CX:'61',CY:'357',CZ:'420',DE:'49',DJ:'253',DK:'45',DM:'1767',DO:'1',DZ:'213',EC:'593',EE:'372',EG:'20',EH:'212',ER:'291',ES:'34',ET:'251',FI:'358',FJ:'679',FK:'500',FM:'691',FO:'298',FR:'33',GA:'241',GB:'44',GD:'1473',GE:'995',GF:'594',GG:'44',GH:'233',GI:'350',GL:'299',GM:'220',GN:'224',GP:'590',GQ:'240',GR:'30',GT:'502',GU:'1671',GW:'245',GY:'592',HK:'852',HN:'504',HR:'385',HT:'509',HU:'36',ID:'62',IE:'353',IL:'972',IM:'44',IN:'91',IO:'246',IQ:'964',IR:'98',IS:'354',IT:'39',JE:'44',JM:'1876',JO:'962',JP:'81',KE:'254',KG:'996',KH:'855',KI:'686',KM:'269',KN:'1869',KP:'850',KR:'82',KW:'965',KY:'1345',KZ:'7',LA:'856',LB:'961',LC:'1758',LI:'423',LK:'94',LR:'231',LS:'266',LT:'370',LU:'352',LV:'371',LY:'218',MA:'212',MC:'377',MD:'373',ME:'382',MF:'590',MG:'261',MH:'692',MK:'389',ML:'223',MM:'95',MN:'976',MO:'853',MP:'1670',MQ:'596',MR:'222',MS:'1664',MT:'356',MU:'230',MV:'960',MW:'265',MX:'52',MY:'60',MZ:'258',NA:'264',NC:'687',NE:'227',NF:'672',NG:'234',NI:'505',NL:'31',NO:'47',NP:'977',NR:'674',NU:'683',NZ:'64',OM:'968',PA:'507',PE:'51',PF:'689',PG:'675',PH:'63',PK:'92',PL:'48',PM:'508',PN:'64',PR:'1',PS:'970',PT:'351',PW:'680',PY:'595',QA:'974',RE:'262',RO:'40',RS:'381',RU:'7',RW:'250',SA:'966',SB:'677',SC:'248',SD:'249',SE:'46',SG:'65',SH:'290',SI:'386',SJ:'47',SK:'421',SL:'232',SM:'378',SN:'221',SO:'252',SR:'597',SS:'211',ST:'239',SV:'503',SX:'1721',SY:'963',SZ:'268',TC:'1649',TD:'235',TG:'228',TH:'66',TJ:'992',TK:'690',TL:'670',TM:'993',TN:'216',TO:'676',TR:'90',TT:'1868',TV:'688',TW:'886',TZ:'255',UA:'380',UG:'256',US:'1',UY:'598',UZ:'998',VA:'39',VC:'1784',VE:'58',VG:'1284',VI:'1340',VN:'84',VU:'678',WF:'681',WS:'685',XK:'383',YE:'967',YT:'262',ZA:'27',ZM:'260',ZW:'263'};
+var DEF={'1':'US','7':'RU','39':'IT','44':'GB','47':'NO','61':'AU','212':'MA','262':'RE','358':'FI','590':'GP','599':'CW'};
+/* নম্বরের দৈর্ঘ্য ও প্রথম অঙ্ক (শুরুর 0 বাদ দিয়ে): [সর্বনিম্ন, সর্বোচ্চ, প্রথম অঙ্ক] */
+var RULE={BD:[10,10,'1'],IN:[10,10,'6789'],SA:[9,9,'5'],AE:[9,9,'5'],PK:[10,10,'3'],US:[10,10],CA:[10,10],GB:[10,10,'7'],EG:[10,10,'1']};
+var T={
+ bn:{country:'দেশ:',city:'শহর (ঐচ্ছিক):',cityPh:'যেমন: ঢাকা',pick:'দেশ নির্বাচন করুন...',codeLbl:'কান্ট্রি কোড নির্বাচন করুন',phPh:'নম্বর লিখুন',bad:'নম্বরটি সঠিক নয়। নির্বাচিত কোডের সাথে মিলিয়ে নম্বর দিন।',empty:'অনুগ্রহ করে মোবাইল নম্বর দিন।'},
+ en:{country:'Country:',city:'City (optional):',cityPh:'e.g. Dhaka',pick:'Select country...',codeLbl:'Select country code',phPh:'Phone number',bad:'This number looks incorrect for the selected country code.',empty:'Please enter your mobile number.'},
+ ar:{country:'الدولة:',city:'المدينة (اختياري):',cityPh:'مثال: دكا',pick:'اختر الدولة...',codeLbl:'اختر رمز الدولة',phPh:'رقم الهاتف',bad:'الرقم غير صحيح لرمز الدولة المختار.',empty:'يرجى إدخال رقم الجوال.'}
+};
+var q=function(s){return document.querySelector(s)};
+var code=q('#fCode'),view=q('#fCodeView'),phone=q('#fPhone'),sel=q('#fCountry'),city=q('#fCity'),err=q('#fPhoneErr');
+if(!code||!view||!phone||!sel||!err)return;
+var field=phone.closest('.field');
+var isWin=/Windows/i.test(navigator.userAgent);
+var ISO=Object.keys(D);
+function lang(){var l=document.documentElement.lang;return T[l]?l:'bn'}
+function dn(l){try{return new Intl.DisplayNames([l],{type:'region'})}catch(e){return null}}
+function nameOf(d,c){try{var n=d&&d.of(c);return(n&&n!==c)?n:''}catch(e){return ''}}
+function flag(c){try{return String.fromCodePoint(127397+c.charCodeAt(0),127397+c.charCodeAt(1))}catch(e){return ''}}
+function sorted(){
+ var l=lang(),d=dn(l),o=ISO.map(function(c){return{v:c,n:nameOf(d,c)||c}});
+ o.sort(function(a,b){return a.n.localeCompare(b.n,l)});return o;
+}
+function opt(v,t){var o=document.createElement('option');o.value=v;o.textContent=t;return o}
+
+/* কোডের তালিকা (শুধু নির্বাচন) */
+function updateView(){var c=code.value||'BD';view.textContent=(isWin?'':flag(c)+' ')+'+'+D[c]}
+function buildCode(){
+ var keep=code.value||'BD';code.innerHTML='';
+ sorted().forEach(function(x){code.appendChild(opt(x.v,(isWin?'':flag(x.v)+' ')+x.n+' (+'+D[x.v]+')'))});
+ code.value=keep;updateView();
+}
+/* দেশ (শুধু পরিচয়) */
+function buildCountry(){
+ var keep=sel.value;sel.innerHTML='';sel.appendChild(opt('',T[lang()].pick));
+ sorted().forEach(function(x){sel.appendChild(opt(x.v,(isWin?'':flag(x.v)+' ')+x.n))});
+ sel.value=keep;
+}
+function labels(){
+ var l=lang();
+ [].forEach.call(document.querySelectorAll('[data-lbl]'),function(e){e.textContent=T[l][e.getAttribute('data-lbl')]});
+ if(city)city.placeholder=T[l].cityPh;
+ phone.placeholder=T[l].phPh;code.setAttribute('aria-label',T[l].codeLbl);
+}
+
+/* নম্বর */
+function nat(){var d=(phone.value||'').replace(/\D/g,'');if(D[code.value]!=='39')d=d.replace(/^0+/,'');return d}
+function e164(){var n=nat();return n?'+'+D[code.value]+n:''}
+function valid(){
+ var n=nat();if(!n)return false;var r=RULE[code.value];
+ if(r)return n.length>=r[0]&&n.length<=r[1]&&(!r[2]||r[2].indexOf(n.charAt(0))>-1);
+ return n.length>=5&&n.length<=12&&D[code.value].length+n.length<=15;
+}
+function isoFor(p){
+ if(DEF[p])return DEF[p];
+ for(var i=0;i<ISO.length;i++)if(D[ISO[i]]===p)return ISO[i];
+ return '';
+}
+/* কেউ +880… বা 00880… পেস্ট করলে কোড আলাদা করে বসিয়ে দেয় */
+function fromIntl(raw){
+ var t=raw.trim(),d=t.replace(/\D/g,'');
+ if(t.charAt(0)==='+'){}else if(t.replace(/\s/g,'').indexOf('00')===0){d=d.slice(2)}else return false;
+ for(var L=4;L>=1;L--){var iso=isoFor(d.slice(0,L));if(iso){code.value=iso;updateView();phone.value=d.slice(L);return true}}
+ return false;
+}
+function check(show){
+ var l=lang(),has=nat().length>0,ok=valid();
+ field.classList.toggle('is-valid',has&&ok);
+ field.classList.toggle('is-invalid',has&&!ok&&show);
+ err.hidden=!(show&&(!has||!ok));
+ if(!err.hidden)err.textContent=has?T[l].bad:T[l].empty;
+ return ok;
+}
+code.addEventListener('change',function(){updateView();check(false)});
+phone.addEventListener('input',function(){
+ if(!fromIntl(phone.value)){var c=phone.value.replace(/\D/g,'');if(c!==phone.value)phone.value=c}
+ check(false);
+});
+phone.addEventListener('blur',function(){if(nat().length)check(true)});
+
+/* app.js-এর জমা দেওয়ার কোড এই অংশ ব্যবহার করে */
+window.NFPhone={
+ value:e164,
+ ok:function(){return check(true)},
+ err:function(){return err.textContent||T[lang()].bad},
+ country:function(){
+  var v=sel.value;if(!v)return '';
+  var b=nameOf(dn('bn'),v),e=nameOf(dn('en'),v);
+  return(b&&e&&b!==e)?b+' ('+e+')':(b||e||v);
+ }
+};
+
+buildCode();buildCountry();labels();
+document.addEventListener('nf-lang',function(){buildCode();buildCountry();labels()});
+})();
+</script>
 </body>
 </html>
