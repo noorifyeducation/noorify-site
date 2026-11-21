@@ -822,3 +822,26 @@ html[lang="en"] .nfp-title{font-family:'Manrope','Inter',sans-serif;font-weight:
 @keyframes nfglow{0%,100%{box-shadow:0 0 10px rgba(243,220,159,.18);opacity:.75}50%{box-shadow:0 0 26px rgba(243,220,159,.55);opacity:1}}
 @keyframes nfshine{0%{left:-60%}38%,100%{left:130%}}
 @media(max-width:480px){.nf-cta{width:80px;height:80px;margin:-40px 0 0 -40px}.nf-play svg{width:32px;height:32px}.nf-hand{width:38px;height:38px;margin-left:-13px}.v-std .nf-cta::before{inset:-9px}}
+
+/* শিক্ষকের ছবি: গোল ফ্রেমে ঠিকভাবে বসবে */
+.teacher .avatar{overflow:hidden}
+.teacher .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+
+/* শিক্ষক পেজ: ক্লাসিক কার্ড (লম্বাটে ছবি, নাম, সোনালি দাগ, পরিচয়) */
+#tstatic{display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
+#tstatic .teacher{flex:0 1 330px;width:100%;max-width:340px;padding:14px 14px 28px;overflow:hidden}
+.t-photo{aspect-ratio:4/5;border-radius:18px;overflow:hidden;margin-bottom:18px;background:rgba(255,255,255,.05)}
+.t-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+#tstatic .teacher h3{font-size:20px;line-height:1.45;padding:0 8px}
+.t-line{width:34px;height:2px;border-radius:2px;background:var(--gold);margin:12px auto}
+#tstatic .teacher p{padding:0 10px}
+#tstatic .teacher p.t-aff1{font-size:15px;font-weight:600;color:var(--text);line-height:1.6}
+#tstatic .teacher p.t-aff{font-size:14px;line-height:1.6;margin-top:6px}
+@media(min-width:768px){#tstatic .teacher h3{font-size:22px}}
+
+/* ===== অ্যাপ ইন্ট্রো স্ক্রিন (শুধু ইনস্টল করা অ্যাপে, ব্রাউজারে নয়) ===== */
+html.nf-intro::before{content:"";position:fixed;inset:0;z-index:2147483000;background:#192d47 url(splash/intro-portrait.jpg) center/cover no-repeat;opacity:1;transition:opacity .6s ease}
+@media(orientation:landscape){html.nf-intro::before{background-image:url(splash/intro-landscape.jpg)}}
+html.nf-intro.nf-intro-out::before{opacity:0;pointer-events:none}
+html.nf-intro,html.nf-intro body{overflow:hidden}
+@media(prefers-reduced-motion:reduce){html.nf-intro::before{transition:none}}
