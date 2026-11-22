@@ -369,7 +369,7 @@ background:linear-gradient(160deg,#13275c,#0a1740 70%);border:1px solid rgba(255
 @media(prefers-reduced-motion:reduce){.pm,.pm-box{transition:none}.pm-list li{opacity:1;transform:none;animation:none!important}}
 /* CTA: গাঢ়, শান্ত রঙ—পেজের বাকি অংশের সাথে মিলিয়ে */
 #p-home .hs.cta{background:radial-gradient(60% 80% at 50% 0,rgba(142,203,255,.09),transparent 70%),radial-gradient(40% 60% at 85% 100%,rgba(232,205,138,.06),transparent 70%),linear-gradient(180deg,#0a1433,#060d24);border-top:1px solid rgba(232,205,138,.16)}
-/* উপরে যাওয়ার বাটন: ঢেউয়ের মতো উপরমুখী তীর */
+/* উপরে যাওয়ার বাটন: ঢেউয়ের মতো উপরমুখি তির */
 #btt{display:grid;place-items:center;padding:0;font-size:0;color:#0a1433;background:linear-gradient(145deg,#f6e2a8,#dcb55a);box-shadow:0 8px 22px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.55);transition:opacity .3s,bottom .35s,transform .2s}
 #btt:active{transform:scale(.92)}
 #btt svg{display:block;position:relative;z-index:1}
@@ -384,7 +384,7 @@ background:linear-gradient(160deg,#13275c,#0a1740 70%);border:1px solid rgba(255
 #btt{background:none;box-shadow:none;border-radius:0;color:#f0d98f;width:46px;height:52px}
 #btt::after,#btt.show::after{display:none;animation:none}
 #btt svg{width:38px;height:38px;stroke-width:3;filter:drop-shadow(0 2px 3px rgba(0,0,0,.75)) drop-shadow(0 0 8px rgba(232,205,138,.55))}
-/* উপরে যাওয়ার শেভরন: নীল থিমের সাথে মানানসই আকাশি–অ্যাকোয়া রং, নড়াচড়া একটু শান্ত */
+/* উপরে যাওয়ার শেভরন: নিল থিমের সাথে মানানসই আকাশি–অ্যাকোয়া রং, নড়াচড়া একটু শান্ত */
 #btt{color:#8ecbff}
 #btt .w1{stroke:#4fc3e8}
 #btt .w2{stroke:#8ecbff}
@@ -437,12 +437,12 @@ border:1px solid rgba(142,203,255,.26);box-shadow:0 24px 60px rgba(0,0,0,.4),ins
  #p-home .hs.cta .actions{flex-direction:row;justify-content:center}
  #p-home .hs.cta .actions .btn{width:auto;min-width:250px}
 }
-/* ===== শেষের CTA পালিশ: সোনালি ঝলক বাদ, নীল থিমের সাথে মিল, ছোট ও মার্জিত বাটন ===== */
+/* ===== শেষের CTA পালিশ: সোনালি ঝলক বাদ, নিল থিমের সাথে মিল, ছোট ও মার্জিত বাটন ===== */
 #p-home .hs.cta .wrap{border-color:rgba(142,203,255,.22)}
 #p-home .hs.cta .wrap>*{position:relative;z-index:1}
 /* ওপরের সোনালি দাগ → স্থির, হালকা আকাশি সুতোরেখা */
 #p-home .hs.cta .wrap::before{width:62%;height:1px;border-radius:0;background:linear-gradient(90deg,transparent,rgba(142,203,255,.6),transparent)}
-/* কার্ডের ভেতরে ধীরে ভেসে চলা নীল আভা */
+/* কার্ডের ভেতরে ধিরে ভেসে চলা নিল আভা */
 #p-home .hs.cta .wrap::after{content:'';position:absolute;inset:-35%;z-index:0;pointer-events:none;background:radial-gradient(circle at 28% 32%,rgba(111,155,255,.17),transparent 42%),radial-gradient(circle at 74% 70%,rgba(142,203,255,.11),transparent 42%);animation:ctaDrift 16s ease-in-out infinite alternate}
 @keyframes ctaDrift{0%{transform:translate3d(-4%,-3%,0) rotate(0deg)}100%{transform:translate3d(4%,3%,0) rotate(8deg)}}
 /* "নুরিফাই এডুকেশনের সঙ্গে": সোনালি → আকাশি */
@@ -453,20 +453,20 @@ border:1px solid rgba(142,203,255,.26);box-shadow:0 24px 60px rgba(0,0,0,.4),ins
 #p-home .hs.cta .actions .btn{position:relative;overflow:hidden;max-width:300px;min-height:50px;padding:0 22px;font-size:15.5px;line-height:1.2;white-space:nowrap;transition:transform .25s,box-shadow .25s,border-color .25s,background .25s}
 #p-home .hs.cta .actions .btn:hover{transform:translateY(-2px)}
 #p-home .hs.cta .actions .btn:active{transform:scale(.97)}
-/* প্রাইমারি বাটনে ধীর আলোর ঝিলিক */
+/* প্রাইমারি বাটনে ধির আলোর ঝিলিক */
 #p-home .hs.cta .actions .btn:not(.btn-wa)::after{content:'';position:absolute;top:0;bottom:0;left:0;width:45%;pointer-events:none;background:linear-gradient(105deg,transparent,rgba(255,255,255,.5),transparent);transform:translateX(-160%) skewX(-18deg);animation:ctaShine 5s ease-in-out infinite 1.2s}
 @keyframes ctaShine{0%,55%{transform:translateX(-160%) skewX(-18deg)}100%{transform:translateX(380%) skewX(-18deg)}}
-/* WhatsApp: ভারী সবুজ ব্লক নয়, কাঁচের মতো পিল + ছোট সবুজ আইকন */
+/* WhatsApp: ভারি সবুজ ব্লক নয়, কাঁচের মতো পিল + ছোট সবুজ আইকন */
 #p-home .hs.cta .actions .btn-wa{background:linear-gradient(135deg,rgba(37,211,102,.16),rgba(37,211,102,.06));color:var(--text);border:1px solid rgba(37,211,102,.5);box-shadow:0 8px 22px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.08);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);gap:10px}
 #p-home .hs.cta .actions .btn-wa:hover{border-color:rgba(37,211,102,.85);box-shadow:0 12px 28px rgba(37,211,102,.22),inset 0 1px 0 rgba(255,255,255,.1)}
 #p-home .hs.cta .btn-wa .waic{position:relative;flex:none;display:grid;place-items:center;width:28px;height:28px;margin:0;vertical-align:0;border-radius:50%;background:#25D366}
 #p-home .hs.cta .btn-wa .waic svg{width:17px;height:17px;fill:#fff}
 #p-home .hs.cta .btn-wa .waic::after{content:'';position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(37,211,102,.7);animation:ctaRing 2.6s ease-out infinite}
 @keyframes ctaRing{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.9);opacity:0}}
-/* CTA-র সময় ভাসমান WhatsApp ও ওপরে-যাওয়া বাটন সরে যায়—ডুপ্লিকেট ও ঘেঁষাঘেঁষি দূর */
+/* CTA-র সময় ভাসমান WhatsApp ও ওপরে-যাওয়া বাটন সরে যায়—ডুপ্লিকেট ও ঘেঁষাঘেঁষি দুর */
 .fwa,#btt{transition:opacity .3s,transform .3s,bottom .35s}
-body.cta-in .fwa{opacity:0;transform:scale(.6);pointer-events:none;animation:none}
-body.cta-in #btt{opacity:0!important;pointer-events:none!important}
+/* WhatsApp-সংক্রান্ত অংশ (CTA, অনুরোধ-কার্ড) স্ক্রিনে এলে ভাসমান WhatsApp বাটন লুকায়; অ্যারো বাটন আর লুকায় না */
+body.wa-off .fwa{opacity:0;transform:scale(.6);pointer-events:none;animation:none}
 /* ভেতরের উপাদানগুলো একে একে উঠে আসে */
 #p-home .hs.cta .wrap.rv>*{opacity:0;transform:translateY(12px);transition:opacity .6s,transform .6s}
 #p-home .hs.cta .wrap.rv.in>*{opacity:1;transform:none}
@@ -477,12 +477,12 @@ body.cta-in #btt{opacity:0!important;pointer-events:none!important}
  #p-home .hs.cta .wrap::after,#p-home .hs.cta .actions .btn::after,#p-home .hs.cta .btn-wa .waic::after{animation:none}
  #p-home .hs.cta .wrap.rv>*{opacity:1;transform:none;transition:none}
 }
-/* CTA কার্ড: সাদাটে ধোঁয়া নেই—গাঢ়, গভীর নেভি; আলো শুধু নীল */
+/* CTA কার্ড: সাদাটে ধোঁয়া নেই—গাঢ়, গভির নেভি; আলো শুধু নিল */
 #p-home .hs.cta .wrap{background:radial-gradient(85% 60% at 50% 0,rgba(59,108,245,.24),transparent 72%),linear-gradient(165deg,#0f2150 0%,#0a1741 55%,#081230 100%);border:1px solid rgba(111,155,255,.28);box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 0 1px rgba(5,11,31,.6),inset 0 1px 0 rgba(142,203,255,.14)}
 #p-home .hs.cta .wrap::after{background:radial-gradient(circle at 25% 30%,rgba(59,108,245,.2),transparent 40%),radial-gradient(circle at 78% 72%,rgba(79,195,232,.1),transparent 40%)}
 #p-home .hs.cta .wrap::before{background:linear-gradient(90deg,transparent,rgba(111,155,255,.7),transparent)}
 #p-home .hs.cta p{color:#b4c3e6}
-/* CTA: বোর্ড/বাক্স নেই—গাঢ় জমিনে ওয়াটারকালারের মতো নরম নীল রঙের ধোয়া, স্ক্রলে ধীরে সরে */
+/* CTA: বোর্ড/বাক্স নেই—গাঢ় জমিনে ওয়াটারকালারের মতো নরম নিল রঙের ধোয়া, স্ক্রলে ধিরে সরে */
 #p-home .hs.cta{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(180deg,#050b1f 0%,#07122e 50%,#050b1f 100%);border-top:1px solid rgba(255,255,255,.05)}
 #p-home .hs.cta .wrap{background:none;border:0;box-shadow:none;border-radius:0;overflow:visible;padding-left:0;padding-right:0}
 #p-home .hs.cta .wrap::before,#p-home .hs.cta .wrap::after{display:none}
@@ -493,7 +493,7 @@ body.cta-in #btt{opacity:0!important;pointer-events:none!important}
 @keyframes cwA{0%{transform:translate3d(-3%,0,0) scale(1)}100%{transform:translate3d(4%,-3%,0) scale(1.08)}}
 @keyframes cwB{0%{transform:translate3d(3%,2%,0) scale(1.05)}100%{transform:translate3d(-4%,-2%,0) scale(1)}}
 @media(prefers-reduced-motion:reduce){#p-home .hs.cta::before,#p-home .hs.cta::after{animation:none;translate:none}}
-/* CTA: আলাদা সেকশন-শেপ নেই; কাঁচের মতো স্বচ্ছ বোর্ড, বর্ডার + চারপাশে নরম নীল আভা, নিচের নকশা দেখা যায় */
+/* CTA: আলাদা সেকশন-শেপ নেই; কাঁচের মতো স্বচ্ছ বোর্ড, বর্ডার + চারপাশে নরম নিল আভা, নিচের নকশা দেখা যায় */
 #p-home .hs.cta{background:transparent;border-top:0;overflow:visible;isolation:auto}
 #p-home .hs.cta::before,#p-home .hs.cta::after{display:none}
 #p-home .hs.cta .wrap{position:relative;max-width:680px;margin:0 auto;padding:36px 22px 32px;border-radius:30px;overflow:hidden;
@@ -531,12 +531,12 @@ body.cta-in::before{opacity:.13}
  14%{border-color:rgba(190,225,255,.95);box-shadow:0 6px 16px rgba(0,0,0,.3),0 0 18px 2px rgba(111,155,255,.55)}}
 @keyframes qcNudge{0%,100%{transform:translate(0,-1px)}50%{transform:translate(4px,-1px)}}
 @media(prefers-reduced-motion:reduce){.qcats .btn.btn-ghost,.qcats .btn.btn-ghost::after{animation:none!important}}
-/* ইংরেজি শিরোনাম: ভারী ও আভিজাত্যপূর্ণ সেরিফ (Playfair Display); কার্ড-শিরোনাম গাঢ় Manrope; বডি লেখা অপরিবর্তিত (Inter) */
+/* ইংরেজি শিরোনাম: ভারি ও আভিজাত্যপুর্ণ সেরিফ (Playfair Display); কার্ড-শিরোনাম গাঢ় Manrope; বডি লেখা অপরিবর্তিত (Inter) */
 html[lang="en"] body h1,html[lang="en"] body h2{font-family:'Playfair Display','Manrope',Georgia,serif;font-weight:700;letter-spacing:-.01em;line-height:1.22}
 html[lang="en"] body .hero h1{font-weight:800;line-height:1.14;letter-spacing:-.015em}
 html[lang="en"] #p-home .hs.cta h2{line-height:1.25;letter-spacing:-.005em}
 html[lang="en"] body h3,html[lang="en"] body h4{font-family:'Manrope',system-ui,sans-serif;font-weight:700;letter-spacing:0}
-/* সেকশন শিরোনামের নিচে ছোট নীল আভার দাগ—শিরোনাম বলে চেনা যায় */
+/* সেকশন শিরোনামের নিচে ছোট নিল আভার দাগ—শিরোনাম বলে চেনা যায় */
 html[lang="en"] .sec-head h2::after{content:'';display:block;width:44px;height:3px;margin:14px auto 0;border-radius:3px;background:linear-gradient(90deg,#6f9bff,#8ecbff)}
 /* CTA সেকশন: কুইজ সেকশনের মতোই হালকা আবছা পটি (আলাদা কালচে শেপ নয়) */
 #p-home .hs.cta{background:rgba(255,255,255,.025);border-top:1px solid rgba(255,255,255,.07);padding-top:44px}
@@ -559,7 +559,7 @@ html[lang="en"] .sec-head h2::after{content:'';display:block;width:44px;height:3
 /* ভেতরের সব পেজ (পরিচিতি, কোর্স, ফি, প্রশ্নোত্তর) একইভাবে একসাথে আসবে:
    আলাদা আলাদা কার্ডের নিচ থেকে উঠে আসা বন্ধ, শুধু পেজের নিজস্ব মসৃণ ফেড-ইন থাকবে */
 .page:not(#p-home) .rv{opacity:1!important;transform:none!important;transition:none!important}
-/* "কীভাবে শুরু করবেন?" — বাটনের বদলে ধাপের টাইমলাইন; শুধু লিংক-ধাপগুলো চাপা যায় */
+/* "কিভাবে শুরু করবেন?" — বাটনের বদলে ধাপের টাইমলাইন; শুধু লিংক-ধাপগুলো চাপা যায় */
 .steps.tl{display:flex;flex-direction:column;gap:0;max-width:560px;margin:0 auto;counter-reset:s}
 .steps.tl .step{position:relative;text-align:start;padding:0 0 28px;padding-inline-start:66px;min-height:48px}
 .steps.tl .step::before{position:absolute;top:0;inset-inline-start:0;margin:0;width:44px;height:44px}
@@ -590,16 +590,16 @@ html[lang="en"] .sec-head h2::after{content:'';display:block;width:44px;height:3
 .nf-back{position:relative;z-index:2;display:flex;align-items:center;gap:4px;width:max-content;margin:6px 0 -18px;margin-inline-start:6%;padding:7px 16px 7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:var(--sky);font:inherit;font-size:15px;line-height:1.5;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .nf-back::before{content:'\2039';font-size:24px;line-height:1;margin-top:-2px}
 .nf-back:active{opacity:.7}
-/* পেজ বদলালে স্ক্রল ধীরে ধীরে ওপরে ছুটবে না, সরাসরি ওপরে থাকবে ("ওপরে যান" বাটন আলাদাভাবে মসৃণই থাকবে) */
+/* পেজ বদলালে স্ক্রল ধিরে ধিরে ওপরে ছুটবে না, সরাসরি ওপরে থাকবে ("ওপরে যান" বাটন আলাদাভাবে মসৃণই থাকবে) */
 html{scroll-behavior:auto!important}
-/* সব জায়গার টিক এক ধাঁচের: পাতলা রেখার টিক, হালকা নীল ঘেরা বৃত্ত */
+/* সব জায়গার টিক এক ধাঁচের: পাতলা রেখার টিক, হালকা নিল ঘেরা বৃত্ত */
 :root{--tick:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238ecbff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.5 12.5l4.3 4.3L18.5 7.8'/%3E%3C/svg%3E")}
 html .pm-list li::before,html .ab-list li::before,html .plan li::before,html .chk li::before{content:'';font-size:0;color:transparent;border:1px solid rgba(142,203,255,.42);border-radius:50%;background:var(--tick) center/58% no-repeat,rgba(142,203,255,.12);box-shadow:0 0 12px rgba(142,203,255,.12)}
 html .pm-list li::before{width:22px;height:22px;top:2px}
 html .ab-list li::before{width:24px;height:24px}
 html .plan li::before{display:block;flex:none;width:20px;height:20px;margin-top:3px}
 html .chk li::before{display:inline-block;width:20px;height:20px;vertical-align:-4px;margin-inline-end:8px}
-/* পপআপের শিরোনাম: উজ্জ্বল সাদা + ছোট নীল দাগ */
+/* পপআপের শিরোনাম: উজ্জ্বল সাদা + ছোট নিল দাগ */
 html .pm-sec h4{display:flex;align-items:center;gap:10px;font-size:16.5px;font-weight:700;letter-spacing:0;color:var(--text);margin:0 0 12px}
 html .pm-sec h4::before{content:'';flex:none;width:4px;height:18px;border-radius:4px;background:linear-gradient(180deg,#8ecbff,#5fd0e8)}
 /* প্রশ্নোত্তর: ফ্ল্যাশ/ঝলকানি বন্ধ, "+" কে চাপার মতো বাটন বানানো */
@@ -1013,3 +1013,8 @@ body::after{display:none!important}
 /* Match the selected mobile reference: photo first, no extra pill above it. */
 #p-home .hero-copy>.badge{display:none!important}
 #p-home .cover.pic::before{z-index:0}
+
+/* ===== অ্যারো বাটন: WhatsApp বাটন সরে গেলে অ্যারো নিচের কোণায় নেমে আসে ===== */
+html body.wa-off #btt{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+html body.wa-off.mbar-off #btt{bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+@media(min-width:768px){html body.wa-off #btt,html body.wa-off.mbar-off #btt{bottom:24px}}
