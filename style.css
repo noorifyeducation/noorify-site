@@ -1025,14 +1025,15 @@ html body.wa-off.mbar-off #btt{bottom:calc(24px + env(safe-area-inset-bottom,0px
    side texture continues seamlessly to the end of every page.
    ===================================================================== */
 :root{--bgw:min(100vw,1100px);--bgtop:calc(var(--bgw) * 760 / 941)}
-html{background:#011938}
+html{background:#001736}
 html body{background:transparent!important;isolation:isolate}
 html body::before{content:'';display:block!important;position:absolute;left:0;right:0;top:0;bottom:0;width:100%!important;height:auto!important;z-index:-1;pointer-events:none;opacity:1;
   -webkit-mask-image:none;mask-image:none;
+  /* uniform seamless cracked-arabesque texture everywhere + mosque fading into it at the top */
   background:
     url('media/noorify-bg-top.webp') center top/var(--bgw) auto no-repeat,
-    url('media/noorify-bg-tile.webp') center var(--bgtop)/var(--bgw) auto repeat-y,
-    #011938}
+    url('media/noorify-bg-tile.webp') 0 0/calc(var(--bgw) * .5) calc(var(--bgw) * .5) repeat,
+    #001736}
 html body::after{display:none!important}
 body{position:relative;min-height:100vh}
 /* hero: faint arabesque glow instead of blue blobs, so the new canvas shows through */
@@ -1041,3 +1042,86 @@ body{position:relative;min-height:100vh}
 #p-home .cover.pic::before{background:linear-gradient(90deg,rgba(120,170,235,.10),rgba(30,70,140,.06))!important;
   -webkit-backdrop-filter:blur(.6px);backdrop-filter:blur(.6px);
   border:1px solid rgba(160,200,255,.14);border-right:0;opacity:1}
+
+/* =====================================================================
+   NOORIFY SMOOTH CANVAS v3 — one uniform cracked-arabesque texture on every page.
+   No section bands, shadows, gradients or divider lines on top of the canvas.
+   ===================================================================== */
+html body .hs,html body .hs.h-alt,html body .hs.cta,html body section,html body main,html body .page{
+  background:transparent!important;background-image:none!important;border-top:0!important;border-bottom:0!important;box-shadow:none!important}
+html body footer{background:transparent!important;background-image:none!important;border-top:0!important;box-shadow:none!important}
+html body footer .f-copy{border-top:0!important}
+html body .hero::before,html body .hero::after{box-shadow:none!important}
+html body .hero::before{background:none!important}
+
+/* =====================================================================
+   NOORIFY LIGHT THEME v4 — ivory + gold + navy (reference design)
+   Previous dark theme is kept in style-dark-backup.css
+   ===================================================================== */
+:root{--ink:#0b2a5b;--ink2:#46597f;--gold:#c9a24d;--gold2:#e9cf8b;--navy:#0b2a5b;--sky:#12356f;--aqua:#b8892b;--text:#0b2a5b;--muted:#46597f;color-scheme:light;
+  --bgw:min(100vw,1100px);--ah:calc(var(--bgw) * 650 / 1024)}
+html{background:#fefaf1}
+html body{background:transparent!important;color:var(--ink)}
+html body::before{background:url('media/noorify-light-tile.webp') 0 0/calc(var(--bgw) * .34) calc(var(--bgw) * .34) repeat,#fefaf1!important}
+/* ---- navigation ---- */
+html body nav{background:rgba(255,251,242,.9)!important;border-bottom:1px solid rgba(201,162,77,.45)!important;box-shadow:0 6px 20px -12px rgba(11,42,91,.35)!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+html body nav .logo,html body nav .logo *{color:var(--ink)!important}
+html body nav .logo span:first-child,html body nav .logo b{color:#1b4f9c!important}
+html body nav a,html body nav .nav-links a{color:var(--ink)!important}
+html body nav .share-btn,html body nav .lang,html body nav .menu-btn{background:#fff!important;color:var(--ink)!important;border:1px solid rgba(201,162,77,.55)!important;box-shadow:0 3px 10px -4px rgba(11,42,91,.25)}
+html body nav .nav-links{background:#fffaf0!important}
+/* ---- text ---- */
+html body main :is(h1,h2,h3,h4,h5,li,label,b,strong,small,dt,summary){color:var(--ink)!important}
+html body main :is(p,.sm,.note,.ar){color:var(--ink2)!important}
+html body main h3{color:var(--navy)!important}
+html body main .sec-head h2{color:var(--ink)!important}
+html body main .sec-head h2::after,html body main .sec-head::after{background:linear-gradient(90deg,var(--gold),var(--gold2))!important}
+/* ---- cards ---- */
+html body main :is(.glass,.hc,.course,.tile,.rdet,.quiz,.form,.stat,.rs,.rbar,.demo,.gph){background:#fffdf8!important;background-image:none!important;border:1px solid rgba(201,162,77,.55)!important;box-shadow:0 8px 22px -10px rgba(11,42,91,.22)!important}
+html body main .rs.on{background:#fff4d8!important;border-color:var(--gold)!important}
+html body main .ico,html body main .tile i{background:#fff6e0!important;background-image:none!important;border:1px solid rgba(201,162,77,.5)!important;color:var(--ink)!important}
+html body main .rbar{background:rgba(201,162,77,.25)!important}
+/* ---- buttons ---- */
+html body :is(.btn,.btn-block,.f-adm){background:linear-gradient(135deg,#0b2a5b,#16407f)!important;color:#fff!important;border:0!important;box-shadow:0 10px 22px -10px rgba(11,42,91,.6)!important}
+html body :is(.btn,.btn-block,.f-adm) *{color:#fff!important}
+html body main .btn-ghost,html body main .btn-email{background:#fffdf8!important;color:var(--ink)!important;border:1.5px solid var(--navy)!important;box-shadow:none!important}
+html body main .btn-ghost *,html body main .btn-email *{color:var(--ink)!important}
+html body .btn-wa{background:linear-gradient(135deg,#128c4a,#25d366)!important;border:0!important;color:#fff!important}
+html body .btn-wa *{color:#fff!important}
+html body main .nf-back{background:#fff!important;color:var(--ink)!important;border:1px solid rgba(201,162,77,.55)!important}
+html body main :is(input,textarea,select,.phone-box){background:#fff!important;color:var(--ink)!important;border:1px solid rgba(201,162,77,.6)!important}
+/* ---- CTA / video frame ---- */
+html body main .hs.cta .wrap{background:#fffdf8!important;background-image:none!important;border:1px solid rgba(201,162,77,.6)!important;box-shadow:0 14px 34px -16px rgba(11,42,91,.3)!important}
+html body main .nf-vframe{background:#0b2a5b!important}
+html body main :is(.nf-vframe,.nf-cta) :is(h1,h2,h3,p,span,b,small){color:#fff!important}
+/* ---- footer + bottom bar: navy band like the reference ---- */
+html body footer{background:linear-gradient(180deg,#0e326b,#0a2450)!important;border-top:3px solid var(--gold)!important;color:#c9d6ee}
+html body footer :is(h4,h5,.f-copy,.fc-row,.fc-row *,li a){color:#e9f0fc!important}
+html body footer p{color:#c9d6ee!important}
+html body footer .f-links a{background:rgba(255,255,255,.07)!important;border-color:rgba(233,207,139,.35)!important}
+html body .mbar{background:rgba(11,42,91,.94)!important}
+html body .mbar *{color:#fff!important}
+html body .nf-real{background:rgba(254,250,241,.92)!important;color:var(--ink)!important}
+/* ---- HERO: mosque + child art, text beside it ---- */
+:root{--navh:66px}
+#p-home .cover.pic{display:none!important}
+html body .hero{position:relative;padding-top:calc(var(--navh) + var(--ah) * .47)!important;min-height:calc(var(--navh) + var(--ah) * 1.02)}
+html body .hero::before{content:''!important;display:block!important;position:absolute;left:0;right:0;top:var(--navh);margin:0 auto;width:var(--bgw);height:var(--ah);inset-inline:0;
+  background:url('media/noorify-hero-art.webp') center top/100% 100% no-repeat!important;animation:none!important;transform:none!important;z-index:0;pointer-events:none}
+html body .hero::after{display:none!important}
+html body .hero-inner{position:relative;z-index:1}
+html body .hero-copy{max-width:100%;border-left:0!important}
+html body .hero h1{max-width:58%;border-left:0!important;padding-left:0!important;font-size:clamp(26px,8vw,52px)!important;line-height:1.18!important}
+html body .hero h1::before,html body .hero h1::after{display:none!important}
+html body .hero h1,html body .hero h1 *{color:var(--ink)!important;text-shadow:none!important}
+html body .hero h1 .h1c{background:linear-gradient(90deg,#d9b25f,#f1dc9e)!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;border-radius:14px;padding:0 .3em;-webkit-text-fill-color:var(--ink)!important}
+html body .hero p{color:var(--ink)!important;max-width:100%}
+html body .hero :is(p,.hero-copy>p){padding-left:0!important;margin-left:0!important;border-left:0!important}
+html body main :is(select,select:disabled,.show,.dd,.dd-btn,.cs-btn,[class*="select"],[class*="picker"]){background-color:#fff!important;background-image:none!important;color:var(--ink)!important;border:1px solid rgba(201,162,77,.6)!important;opacity:1!important}
+html body .mbar .btn,html body .mbar a{background:linear-gradient(135deg,#d9b25f,#f1dc9e)!important;color:#0b2a5b!important;box-shadow:none!important}
+html body .mbar .btn *,html body .mbar a *{color:#0b2a5b!important}
+html body :is(.nfp-trigger,.nfp-trigger.is-ph){background:#fff!important;background-image:none!important;border:1px solid rgba(201,162,77,.6)!important;color:var(--ink)!important}
+html body .nfp-trigger *{color:var(--ink)!important}
+html body .nfp-trigger.is-ph .nfp-val{color:#7d8aa6!important}
+html body :is(.nfp-menu,.nfp-list,.nfp-panel,[class*="nfp-"][role="listbox"]){background:#fffdf8!important;color:var(--ink)!important;border:1px solid rgba(201,162,77,.6)!important}
+html body [class*="nfp-"] :is(li,button,div,span):not(.nfp-trigger){color:var(--ink)!important}
