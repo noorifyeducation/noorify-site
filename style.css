@@ -1013,29 +1013,3 @@ body::after{display:none!important}
 /* Match the selected mobile reference: photo first, no extra pill above it. */
 #p-home .hero-copy>.badge{display:none!important}
 #p-home .cover.pic::before{z-index:0}
-
-
-/* VISIBILITY FIX v2: keep the generated arabesque canvas above the body paint
-   and below all page content. */
-body{position:relative;isolation:isolate;background:#06142f!important}
-body::before{
-  content:""!important;
-  position:fixed!important;
-  inset:0!important;
-  z-index:0!important;
-  display:block!important;
-  pointer-events:none!important;
-  opacity:1!important;
-  background-image:url("media/noorify-arabesque-canvas.webp")!important;
-  background-position:center center!important;
-  background-size:100% 100%!important;
-  background-repeat:no-repeat!important;
-}
-body>nav, body>main, body>footer{
-  position:relative;
-  z-index:1;
-}
-body>.fwa, body>.mbar{
-  position:fixed;
-  z-index:60;
-}
