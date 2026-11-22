@@ -840,8 +840,36 @@ html[lang="en"] .nfp-title{font-family:'Manrope','Inter',sans-serif;font-weight:
 @media(min-width:768px){#tstatic .teacher h3{font-size:22px}}
 
 /* ===== অ্যাপ ইন্ট্রো স্ক্রিন (শুধু ইনস্টল করা অ্যাপে, ব্রাউজারে নয়) ===== */
-html.nf-intro::before{content:"";position:fixed;inset:0;z-index:2147483000;background:#192d47 url(splash/intro-portrait.jpg) center/cover no-repeat;opacity:1;transition:opacity .6s ease}
-@media(orientation:landscape){html.nf-intro::before{background-image:url(splash/intro-landscape.jpg)}}
+html.nf-intro::before{content:"";position:fixed;inset:0;z-index:2147483000;background:#192d47 url(intro-portrait.jpg) center/cover no-repeat;opacity:1;transition:opacity .6s ease}
+@media(orientation:landscape){html.nf-intro::before{background-image:url(intro-landscape.jpg)}}
 html.nf-intro.nf-intro-out::before{opacity:0;pointer-events:none}
 html.nf-intro,html.nf-intro body{overflow:hidden}
 @media(prefers-reduced-motion:reduce){html.nf-intro::before{transition:none}}
+
+/* ===== শেয়ার বাটন (EN বাটনের পাশে) + শেয়ার মেনু ===== */
+.share-btn{width:44px;height:44px;border-radius:14px;border:0;background:rgba(255,255,255,.08);color:var(--sky);cursor:pointer;display:grid;place-items:center;padding:0;transition:background .2s}
+.share-btn:hover,.share-btn:focus-visible{background:rgba(255,255,255,.16)}
+.share-btn svg{width:20px;height:20px}
+.shm{position:fixed;z-index:2147482000;min-width:220px;max-width:calc(100vw - 16px);padding:8px;border-radius:18px;background:rgba(12,26,70,.94);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.12);box-shadow:0 18px 50px rgba(0,0,0,.45);display:none}
+.shm.on{display:block}
+.shm .shm-h{padding:6px 12px 8px;font-size:13px;color:var(--muted,#9fb0d6)}
+.shm a,.shm button{display:flex;align-items:center;gap:12px;width:100%;padding:11px 12px;border:0;background:none;color:var(--text,#fff);font:600 15px inherit;font-family:inherit;border-radius:12px;text-decoration:none;cursor:pointer;text-align:left}
+.shm a:hover,.shm button:hover,.shm a:focus-visible,.shm button:focus-visible{background:rgba(255,255,255,.09)}
+.shm svg{width:20px;height:20px;flex:none;color:var(--sky)}
+.shm-t{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translate(-50%,10px);z-index:2147482100;padding:10px 18px;border-radius:14px;background:rgba(12,26,70,.96);border:1px solid rgba(255,255,255,.14);color:#fff;font:600 14px inherit;font-family:inherit;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.shm-t.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:420px){.nr{gap:6px}.share-btn,.menu-btn{width:40px;height:40px;border-radius:12px}.lang{height:40px;padding:0 12px;border-radius:12px}nav .logo{font-size:19px}}
+@media(max-width:340px){nav{padding-left:12px;padding-right:12px}nav .logo{font-size:15px}.share-btn,.menu-btn{width:38px;height:38px}.lang{height:38px;padding:0 10px}}
+
+/* ===== হোম: "আমাদের বৈশিষ্ট্য" সেকশন (আগের হিরো কার্ড চারটা) ===== */
+#p-home .feat-tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:420px;margin:0 auto}
+@media(min-width:768px){#p-home .feat-tiles{grid-template-columns:repeat(4,1fr);max-width:980px;gap:18px}}
+
+/* ===== ফুটার: দ্রুত লিংক ===== */
+.f-links{max-width:1080px;margin:0 auto 26px;text-align:center}
+.f-links h5{margin:0 0 14px;font-size:16px;font-weight:700;color:var(--text);letter-spacing:.02em}
+.f-links ul{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:360px}
+.f-links a{display:block;padding:11px 12px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);color:var(--muted);text-decoration:none;font-size:15px;line-height:1.4;transition:color .2s,background .2s,border-color .2s}
+.f-links a:hover,.f-links a:focus-visible{color:var(--sky);background:rgba(255,255,255,.08);border-color:rgba(142,203,255,.35)}
+@media(min-width:768px){.f-links ul{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:none}.f-links a{padding:9px 20px;border-radius:999px}}
+@media(max-width:767px){.f-links li:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 5px)}}
