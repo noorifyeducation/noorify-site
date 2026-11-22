@@ -1,0 +1,9 @@
+NOORIFY EDUCATION — PREMIUM DESIGN V3
+
+Open this file: index.html
+Do not open the duplicate noorify-update-v5 folder unless you specifically need that legacy copy.
+
+V3 fix: the mosque panel is now an actual image element layered behind the hero photo, rather than relying only on a CSS pseudo-element.
+The original child photo, text, links, forms, language switching, and site scripts have been retained.
+
+Note: this package was checked for file paths, asset presence, and matching root/legacy CSS+HTML. A live browser rendering check was not available in this environment.
