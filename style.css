@@ -839,13 +839,6 @@ html[lang="en"] .nfp-title{font-family:'Manrope','Inter',sans-serif;font-weight:
 #tstatic .teacher p.t-aff{font-size:14px;line-height:1.6;margin-top:6px}
 @media(min-width:768px){#tstatic .teacher h3{font-size:22px}}
 
-/* ===== অ্যাপ ইন্ট্রো স্ক্রিন (শুধু ইনস্টল করা অ্যাপে, ব্রাউজারে নয়) ===== */
-html.nf-intro::before{content:"";position:fixed;inset:0;z-index:2147483000;background:#192d47 url(intro-portrait.jpg) center/cover no-repeat;opacity:1;transition:opacity .6s ease}
-@media(orientation:landscape){html.nf-intro::before{background-image:url(intro-landscape.jpg)}}
-html.nf-intro.nf-intro-out::before{opacity:0;pointer-events:none}
-html.nf-intro,html.nf-intro body{overflow:hidden}
-@media(prefers-reduced-motion:reduce){html.nf-intro::before{transition:none}}
-
 /* ===== শেয়ার বাটন (EN বাটনের পাশে) + শেয়ার মেনু ===== */
 .share-btn{width:44px;height:44px;border-radius:14px;border:0;background:rgba(255,255,255,.08);color:var(--sky);cursor:pointer;display:grid;place-items:center;padding:0;transition:background .2s}
 .share-btn:hover,.share-btn:focus-visible{background:rgba(255,255,255,.16)}
