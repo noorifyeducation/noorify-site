@@ -801,27 +801,13 @@ html[lang="en"] .nfp-title{font-family:'Manrope','Inter',sans-serif;font-weight:
 .nf-vframe{position:relative;width:100%;max-width:440px;margin:0 auto;aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#050b1f;border:1px solid rgba(232,205,138,.45);box-shadow:0 24px 60px rgba(2,6,23,.55),0 0 0 6px rgba(232,205,138,.07);cursor:pointer}
 .nf-vframe.playing{cursor:auto}
 .nf-vframe video{display:block;width:100%;height:100%;object-fit:cover;background:#050b1f}
-.nf-cta{position:absolute;z-index:2;left:50%;top:77%;width:96px;height:96px;margin:-48px 0 0 -48px;transition:opacity .3s}
-.nf-vframe.playing .nf-cta{opacity:0;pointer-events:none}
-.nf-play{position:relative;width:100%;height:100%;border-radius:50%;cursor:pointer;display:grid;place-items:center;padding:0;border:1.5px solid rgba(243,220,159,.9);background:linear-gradient(145deg,rgba(255,255,255,.3),rgba(255,255,255,.07) 60%,rgba(255,255,255,.18));-webkit-backdrop-filter:blur(12px) saturate(140%);backdrop-filter:blur(12px) saturate(140%);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.75),inset 0 -10px 18px rgba(255,255,255,.07),0 14px 34px rgba(0,0,0,.45);-webkit-tap-highlight-color:transparent;animation:nfpress 2.6s ease-in-out infinite}
-.nf-play::before{content:'';position:absolute;left:14%;right:14%;top:5%;height:40%;border-radius:50% 50% 60% 60%/70% 70% 40% 40%;background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0));pointer-events:none}
-.nf-play::after{content:'';position:absolute;inset:-2px;border-radius:50%;border:2px solid rgba(255,236,170,.9);opacity:0;pointer-events:none;animation:nfripple 2.6s ease-out infinite}
-.nf-play svg{position:relative;margin-left:5px;filter:drop-shadow(0 0 8px rgba(255,214,110,.95))}
-.nf-play:focus-visible{outline:3px solid #fff;outline-offset:6px}
-.nf-shine,.nf-rip2,.nf-cta::before{display:none}
-.nf-hand{position:absolute;left:50%;top:calc(100% + 2px);width:42px;height:42px;margin-left:-14px;pointer-events:none;color:#fff7dc;filter:drop-shadow(0 3px 6px rgba(0,0,0,.6)) drop-shadow(0 0 6px rgba(255,225,150,.55));animation:nftap 2.6s ease-in-out infinite}
 @keyframes nftap{0%{transform:translateY(20px);opacity:0}16%{opacity:1}44%{transform:translateY(-6px)}50%{transform:translateY(-10px) scale(.94)}68%{transform:translateY(8px);opacity:1}100%{transform:translateY(20px);opacity:0}}
 @keyframes nfpress{0%,44%{transform:scale(1)}50%{transform:scale(.95)}60%,100%{transform:scale(1)}}
 @keyframes nfripple{0%,48%{transform:scale(1);opacity:0}52%{opacity:.9}100%{transform:scale(1.9);opacity:0}}
-/* --- standard (premium) extras --- */
-.v-std .nf-cta::before{display:block;content:'';position:absolute;inset:-11px;border-radius:50%;border:1px solid rgba(243,220,159,.65);animation:nfglow 3.2s ease-in-out infinite;pointer-events:none}
-.v-std .nf-shine{display:block;position:absolute;inset:0;border-radius:50%;overflow:hidden;pointer-events:none}
-.v-std .nf-shine::before{content:'';position:absolute;top:-20%;bottom:-20%;left:-60%;width:38%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-18deg);animation:nfshine 2.6s ease-in-out infinite}
-.v-std .nf-rip2{display:block;position:absolute;inset:-2px;border-radius:50%;border:1.5px solid rgba(255,236,170,.75);opacity:0;pointer-events:none;animation:nfripple 2.6s ease-out .2s infinite}
-.v-std .nf-hand{color:#fffdf2}.v-std .nf-hand svg{fill:rgba(255,255,255,.55)}
+
 @keyframes nfglow{0%,100%{box-shadow:0 0 10px rgba(243,220,159,.18);opacity:.75}50%{box-shadow:0 0 26px rgba(243,220,159,.55);opacity:1}}
 @keyframes nfshine{0%{left:-60%}38%,100%{left:130%}}
-@media(max-width:480px){.nf-cta{width:80px;height:80px;margin:-40px 0 0 -40px}.nf-play svg{width:32px;height:32px}.nf-hand{width:38px;height:38px;margin-left:-13px}.v-std .nf-cta::before{inset:-9px}}
+@media(max-width:480px){}
 
 /* শিক্ষকের ছবি: গোল ফ্রেমে ঠিকভাবে বসবে */
 .teacher .avatar{overflow:hidden}
@@ -1086,7 +1072,6 @@ html body main :is(input,textarea,select,.phone-box){background:#fff!important;c
 /* ---- CTA / video frame ---- */
 html body main .hs.cta .wrap{background:#fffdf8!important;background-image:none!important;border:1px solid rgba(201,162,77,.6)!important;box-shadow:0 14px 34px -16px rgba(11,42,91,.3)!important}
 html body main .nf-vframe{background:#0b2a5b!important}
-html body main :is(.nf-vframe,.nf-cta) :is(h1,h2,h3,p,span,b,small){color:#fff!important}
 /* ---- footer + bottom bar: navy band like the reference ---- */
 html body footer{background:linear-gradient(180deg,#0e326b,#0a2450)!important;border-top:3px solid var(--gold)!important;color:#c9d6ee}
 html body footer :is(h4,h5,.f-copy,.fc-row,.fc-row *,li a){color:#e9f0fc!important}
@@ -1361,3 +1346,16 @@ html body main .qcats .btn.btn-ghost:nth-child(6),html body main .qcats .btn.btn
 @media(prefers-reduced-motion:reduce){
   html body main .qcats .btn.btn-ghost,html body main .qcats .btn.btn-ghost::before,html body main .qcats .btn.btn-ghost::after{animation:none!important}
 }
+
+/* ===== Intro video: mobile-style play button ===== */
+.nf-vframe video{object-fit:contain}
+.nfp-cta{position:absolute;z-index:2;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;transition:opacity .3s}
+.nf-vframe.playing .nfp-cta{opacity:0;pointer-events:none}
+.nfp-btn{position:relative;width:100%;height:100%;padding:0;border:0;border-radius:50%;display:grid;place-items:center;cursor:pointer;background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 6px 24px rgba(0,0,0,.35);animation:nfpBreath 2.8s ease-in-out infinite;transition:transform .15s}
+.nfp-btn svg{margin-left:4px}
+.nfp-btn::after{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid rgba(255,255,255,.75);opacity:0;pointer-events:none;animation:nfpRing 2.8s ease-out infinite}
+.nfp-btn:active{transform:scale(.93)}
+.nfp-btn:focus-visible{outline:3px solid #fff;outline-offset:5px}
+@keyframes nfpBreath{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes nfpRing{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.55);opacity:0}}
+@media (prefers-reduced-motion:reduce){.nfp-btn,.nfp-btn::after{animation:none}}
