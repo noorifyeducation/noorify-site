@@ -119,5 +119,33 @@ mo.disconnect();h.textContent='';['h1a','h1b','h1c'].forEach(function(c,i){var s
 h.dataset.raw=t;mo.observe(h,{childList:true,characterData:true,subtree:true})}
 mo=new MutationObserver(function(){setTimeout(split,0)});split();mo.observe(h,{childList:true,characterData:true,subtree:true})})();
 </script>
+<script>
+/* হোম হেডিং: "জ্ঞানের আলোয়" লাইনের ডান প্রান্ত "নতুন দিগন্তের"-এর ডান প্রান্তের সাথে মেলানো */
+(function(){
+ function tw(el){var r=document.createRange();r.selectNodeContents(el);return r.getBoundingClientRect().width}
+ function fit(){
+  try{
+   var h=document.querySelector('#p-home .hero h1');if(!h)return;
+   var a=h.querySelector('.h1a'),b=h.querySelector('.h1b');if(!a||!b)return;
+   a.style.removeProperty('font-size');
+   if(document.documentElement.lang!=='bn'||getComputedStyle(a).display!=='block')return;
+   var wa=tw(a),wb=tw(b);if(!(wa>0&&wb>0))return;
+   var r=wb/wa;if(r<0.7||r>1.6)return;
+   var px=parseFloat(getComputedStyle(a).fontSize)*r;
+   a.style.setProperty('font-size',px.toFixed(2)+'px','important');
+  }catch(e){}
+ }
+ var t;function later(){clearTimeout(t);t=setTimeout(fit,60)}
+ document.addEventListener('DOMContentLoaded',later);
+ window.addEventListener('load',later);
+ window.addEventListener('resize',later);
+ window.addEventListener('orientationchange',later);
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(later);
+ setTimeout(fit,400);setTimeout(fit,1500);
+ var h=document.querySelector('#p-home .hero h1');
+ if(h&&window.MutationObserver)new MutationObserver(later).observe(h,{childList:true,characterData:true,subtree:true});
+ later();
+})();
+</script>
 </body>
 </html>
