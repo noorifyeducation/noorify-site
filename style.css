@@ -958,7 +958,7 @@ body{background:radial-gradient(80% 34% at 50% 0,rgba(40,90,190,.18),transparent
    ===================================================================== */
 body{background:#050f27;isolation:isolate}
 body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:1;
-  background:url('media/noorify-arabesque-canvas.webp') center top/100% 100% no-repeat}
+  background:none}
 body::after{display:none!important}
 .hero::before{animation:none!important;transform:none!important;
   background:radial-gradient(58% 40% at 20% 18%,rgba(52,105,190,.18),transparent 72%),
@@ -970,7 +970,7 @@ body::after{display:none!important}
   box-shadow:0 18px 42px rgba(0,0,0,.38),0 0 22px rgba(75,137,215,.08)}
 #p-home .cover.pic::before{content:'';display:block;position:absolute;z-index:-1;top:2%;bottom:2%;left:-38%;width:76%;
   border-radius:28px 0 0 28px;overflow:hidden;
-  background:linear-gradient(90deg,rgba(4,15,38,.08),rgba(4,15,38,.22)),url('media/noorify-mosque-panel.webp') center 42%/cover no-repeat;
+  background:none;
   opacity:.96;-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 72%,transparent 100%);
   mask-image:linear-gradient(90deg,#000 0%,#000 72%,transparent 100%)}
 #p-home .cover.pic .cimg{position:relative;z-index:1;display:block;width:100%;height:100%;aspect-ratio:1200/670;object-fit:cover;
@@ -1009,10 +1009,7 @@ html body{background:transparent!important;isolation:isolate}
 html body::before{content:'';display:block!important;position:absolute;left:0;right:0;top:0;bottom:0;width:100%!important;height:auto!important;z-index:-1;pointer-events:none;opacity:1;
   -webkit-mask-image:none;mask-image:none;
   /* uniform seamless cracked-arabesque texture everywhere + mosque fading into it at the top */
-  background:
-    url('media/noorify-bg-top.webp') center top/var(--bgw) auto no-repeat,
-    url('media/noorify-bg-tile.webp') 0 0/calc(var(--bgw) * .5) calc(var(--bgw) * .5) repeat,
-    #001736}
+  background:#001736}
 html body::after{display:none!important}
 body{position:relative;min-height:100vh}
 /* hero: faint arabesque glow instead of blue blobs, so the new canvas shows through */
