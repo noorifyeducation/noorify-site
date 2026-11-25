@@ -34,3 +34,54 @@ html body .mbar .btn,html body .mbar a{pointer-events:auto;box-shadow:0 10px 24p
 
 /* --- footer: deep navy with a soft rounded edge --- */
 html body footer{background:linear-gradient(180deg,#0a1a3b,#06112a)!important;border-top:3px solid var(--gold)!important;border-radius:26px 26px 0 0}
+
+/* ===== Elegance pass: one calm button system, tidy mobile controls ===== */
+
+/* Round outlined buttons: white inside, thin gold edge, navy text (same gold edge as the header buttons).
+   Filled navy buttons, the email/WhatsApp buttons and the quiz chips are not touched. */
+html body main .btn-ghost{background:#fffdf8!important;color:var(--ink)!important;border:1.5px solid var(--gold)!important;box-shadow:none!important;transition:background .2s,border-color .2s,transform .15s}
+html body main .btn-ghost:active{background:#fff3d6!important;border-color:#b8902f!important;transform:scale(.98)}
+@media(hover:hover){html body main .btn-ghost:hover{background:#fff6e0!important;border-color:#b8902f!important}}
+
+/* Mobile menu: "Free trial" sits in the list order, only softly highlighted */
+@media(max-width:1023.98px){
+html body nav .nav-links a.nav-cta,html body nav .nav-links a.nav-cta.act{display:flex;align-items:center;justify-content:space-between;margin-top:8px;padding:12px 14px;text-align:start;border-radius:14px;background:#fff3d6!important;border:1px solid rgba(201,162,77,.75);color:var(--ink)!important;font-weight:700;box-shadow:none}
+html body nav .nav-links a.nav-cta:after{content:"\203A";font-size:24px;line-height:1;color:#b8892b}
+html body nav .nav-links a.nav-cta:active{background:#f6e3b4!important}
+}
+
+/* Sticky "book a free trial" bar: slim navy button with a hairline gold edge */
+html body .mbar{padding:8px 5% calc(10px + env(safe-area-inset-bottom,0px))!important}
+html body .mbar .btn,html body .mbar a{background:linear-gradient(135deg,#0b2a5b,#16407f)!important;color:#fff!important;border:1px solid rgba(201,162,77,.6)!important;padding:9px 22px!important;min-height:0!important;font-size:15.5px!important;line-height:1.4!important;box-shadow:0 8px 20px -8px #0b2a5b80!important}
+html body .mbar .btn *,html body .mbar a *{color:#fff!important}
+html body .mbar .btn:active{filter:brightness(1.12)}
+
+/* Floating buttons: WhatsApp sits just above the bar, back-to-top above WhatsApp; both drop when the bar hides */
+@media(max-width:767px){
+html body .fwa{bottom:calc(76px + env(safe-area-inset-bottom,0px))!important}
+html body #btt{bottom:calc(136px + env(safe-area-inset-bottom,0px))!important}
+html body.wa-off #btt{bottom:calc(76px + env(safe-area-inset-bottom,0px))!important}
+html body.mbar-off .fwa{bottom:calc(22px + env(safe-area-inset-bottom,0px))!important}
+html body.mbar-off #btt{bottom:calc(82px + env(safe-area-inset-bottom,0px))!important}
+html body.wa-off.mbar-off #btt{bottom:calc(22px + env(safe-area-inset-bottom,0px))!important}
+html body:has(.mbar[style*="none"]) .fwa{bottom:calc(22px + env(safe-area-inset-bottom,0px))!important}
+html body:has(.mbar[style*="none"]) #btt{bottom:calc(82px + env(safe-area-inset-bottom,0px))!important}
+html body.wa-off:has(.mbar[style*="none"]) #btt{bottom:calc(22px + env(safe-area-inset-bottom,0px))!important}
+}
+
+/* About page: less empty space above the text */
+html body .ab-sec{padding-top:24px!important}
+html body .ab-art{padding:16px 22px 24px!important}
+html body .ab-art p.ab-lead{line-height:1.8}
+@media(min-width:700px){html body .ab-art{padding:28px 44px 34px!important}}
+
+/* Swipe between pages: the page slides out, the next one slides in from the other side */
+@keyframes nfOutL{to{opacity:0;transform:translateX(-46px)}}
+@keyframes nfOutR{to{opacity:0;transform:translateX(46px)}}
+@keyframes nfInL{from{opacity:0;transform:translateX(46px)}to{opacity:1;transform:none}}
+@keyframes nfInR{from{opacity:0;transform:translateX(-46px)}to{opacity:1;transform:none}}
+html.nf-in-l body>main,html.nf-in-l body>footer{animation:nfInL .3s cubic-bezier(.2,.8,.2,1) both!important}
+html.nf-in-r body>main,html.nf-in-r body>footer{animation:nfInR .3s cubic-bezier(.2,.8,.2,1) both!important}
+html.nf-out-l body>main,html.nf-out-l body>footer{animation:nfOutL .17s ease-in forwards!important}
+html.nf-out-r body>main,html.nf-out-r body>footer{animation:nfOutR .17s ease-in forwards!important}
+@media(prefers-reduced-motion:reduce){html[class*="nf-in-"] body>main,html[class*="nf-in-"] body>footer,html[class*="nf-out-"] body>main,html[class*="nf-out-"] body>footer{animation:none!important}}
