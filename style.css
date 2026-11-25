@@ -24,34 +24,13 @@ html body .adm-steps li div{display:grid;gap:2px}
 html body .adm-steps strong{font-size:16px;color:#0f2a5c}
 html body .adm-steps li span{font-size:14px;line-height:1.5;opacity:.85}
 
-/* --- unified line icons --- */
-.ni{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
-html body main .ico,html body .pm-box #pmI,html body main .tile i,html body main .rs b{color:#9a6f12!important}
-html body main .ico .ni,html body .pm-box #pmI .ni{width:32px;height:32px}
-html body main .tile i .ni{width:24px;height:24px}
-html body main .rs b{display:grid;place-items:center;height:30px}
-html body main .rs b .ni{width:26px;height:26px}
-#wSp .ni{width:18px;height:18px;vertical-align:-3px}
+/* --- progress bar: one flat gold colour --- */
+html body main .rbar{height:8px!important;border-radius:6px!important;background:#c9a24d33!important;border:0!important;box-shadow:none!important;overflow:hidden}
+html body main .rbar i{background:#c9a24d!important;border-radius:6px!important;box-shadow:none!important}
 
-/* --- unified buttons --- */
-html body .btn{min-height:50px;font-size:15.5px;font-weight:600;border-radius:999px;letter-spacing:0}
-html body .btn.btn-sm,html body .btn-sm{min-height:42px;font-size:14px;font-weight:600;border-radius:999px}
-html body .btn.f-adm{border-radius:999px}
-html body .btn.btn-email,html body .btn.btn-wa,html body .btn.btn-ghost:not(.btn-sm){font-size:15.5px}
+/* --- sticky trial bar: no navy panel, button floats --- */
+html body .mbar{background:linear-gradient(to top,#fffdf8f0 55%,#fffdf800)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;pointer-events:none}
+html body .mbar .btn,html body .mbar a{pointer-events:auto;box-shadow:0 10px 24px -8px #0b2a5b73!important}
 
-/* --- calmer motion: decorative loops play once and rest --- */
-html body .hero:before,
-html body .h-tiles .tile:after,html body .h-tiles .tile i,
-html body :is(#p-home,#p-learn) .hs.cta .wrap:after,
-html body :is(#p-home,#p-learn) .hs.cta .actions .btn:not(.btn-wa):after,
-html body :is(#p-home,#p-learn) .hs.cta .btn-wa .waic:after,
-html body :is(#p-home,#p-learn) .hs.cta:before,
-html body :is(#p-home,#p-learn) .hs.cta:after,
-html body .adm-actions .btn-wa .waic:after,
-html body .qcats .btn.btn-ghost,html body main .qcats .btn.btn-ghost,
-html body .qcats .btn.btn-ghost:before,html body main .qcats .btn.btn-ghost:before,
-html body .qcats .btn.btn-ghost:after,html body main .qcats .btn.btn-ghost:after,
-html body .faq summary:after,
-html body .hero h1 span.h1c,html body .hero h1 span.h1b span.gw{animation-iteration-count:1!important}
-html body .hero .actions .btn,html body .hs.cta .actions .btn{font-size:15.5px!important}
-html body footer .f-actions a.btn.f-adm,html body footer .f-social a.fb{border-radius:999px!important}
+/* --- footer: deep navy with a soft rounded edge --- */
+html body footer{background:linear-gradient(180deg,#0a1a3b,#06112a)!important;border-top:3px solid var(--gold)!important;border-radius:26px 26px 0 0}
